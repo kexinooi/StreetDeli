@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="blogstyle/menu.css" />
+<!-- OVERLAY MENU (together with header) -->
+<div id="overlay-menu">
+  <span class="close-btn" onclick="toggleMenu()">×</span>
+  <div class="menu-left">
+    <ul class="menu-links">
+      <!--Need HTML!!-->
+      <li><a href="../FrontEndAss Part 1/homePage.html">HOME</a></li>
+      <li><a href="#">BROWSE</a></li>
+      <li><a href="#">COMMUNITY & FORUMS</a></li>
+      <li><a href="../blogs/blogs.html">BLOGS & ARTICLES</a></li>
+      <li><a href="#">CONTACT US</a></li>
+    </ul>
+  </div>
+  <div class="menu-right">
+    <div class="contact-info">
+      <p>Contact</p>
+      <hr />
+      <p>+60 123-456-000</p>
+      <p>info@streetdeli.com</p>
+      <br />
+      <p>1999 StreetDeli Blvd,<br />Malaysia</p>
+    </div>
+
+    <div class="social-icons">
+      <a href="#"><img src="../FrontEndAss Part 1/pictures/instagram.png" alt="Instagram" /></a>
+      <a href="#"><img src="../FrontEndAss Part 1/pictures/twitter.png" alt="Twitter" /></a>
+      <a href="#"><img src="../FrontEndAss Part 1/pictures/facebook.png" alt="Facebook" /></a>
+      <a href="#"><img src="../FrontEndAss Part 1/pictures/youtube.png" alt="YouTube" /></a>
+    </div>
+  </div>
+</div>
+<script>
+  const overlayMenu = document.getElementById("overlay-menu");
+
+  function toggleMenu() {
+    overlayMenu.classList.toggle("active");
+  }
+</script>

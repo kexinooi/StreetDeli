@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StreetDeli.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/homePage.css">
+
+</head>
+<body>
+
+    <!-- HEADER SECTION -->
+    <section class="header">
+        <div class="top-bar">
+            <div class="logo-menu">
+                <h1 class="logo">StreetDeli.</h1>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <img src="pictures/barslide.png" alt="Menu" style="width:25px; height:20px;">
+                </div>
+            </div>
+
+            <div class="icons">
+                <a href="../FrontEndAss Part 1/add-on page/signupPage.html">
+                    <img src="pictures/profile.png" alt="Profile" style="width:30px; height:30px; border-radius:50%;">
+                </a>
+            </div>
+        </div>
+
+        <div class="header-text">
+            <h2>Want To Taste Street Food Near You?</h2>
+            <a href="#" class="browse-btn">Browse</a>
+        </div>
+    </section>
+
+    <!-- OVERLAY MENU (together with header) -->
+    <div id="overlay-menu">
+        <span class="close-btn" onclick="toggleMenu()">×</span>
+        <div class="menu-left">
+            <ul class="menu-links"> <!--Need HTML!!-->
+                <li><a href="homepage.html">HOME</a></li>
+                <li><a href="#">BROWSE</a></li>
+                <li><a href="#">COMMUNITY & FORUMS</a></li>
+                <li><a href="../blogs/blogs.html">BLOGS & ARTICLES</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+        </div>
+        <div class="menu-right">
+            <div class="contact-info">
+                <p>Contact</p><hr>
+                <p>+60 123-456-000</p>
+                <p>info@streetdeli.com</p><br>
+                <p>1999 StreetDeli Blvd,<br>Malaysia</p>
+            </div>
+
+            <div class="social-icons">
+                <a href="#"><img src="pictures/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="pictures/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="pictures/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="pictures/youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- BROWSE SECTION -->
+    <section id="browse-street-food">
+        <h2>Browse Street Food</h2>
+
+        <div class="category-container"> 
+            <!--NEED HTML BROWSE STREET FOOD-->
+            <a href="#ranking" class="category">
+                <img src="pictures/food1.jpg" alt="Ranking">
+                <span class="category-label">Ranking</span>
+            </a>
+            <a href="#trending" class="category">
+                <img src="pictures/food2.jpg" alt="Trending">
+                <span class="category-label">Trending</span>
+            </a>
+            <a href="#area" class="category">
+                <img src="pictures/food3.jpg" alt="Area">
+                <span class="category-label">Area</span>
+            </a>
+            <a href="#halal" class="category">
+                <img src="pictures/food4.jpg" alt="Halal">
+                <span class="category-label">Halal</span>
+            </a>
+            <a href="#type" class="category">
+                <img src="pictures/food5.jpg" alt="Type">
+                <span class="category-label">Type</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- HIDDEN GEM SECTION -->
+    <section id="hidden-gems">
+        <h2>Hidden Gems</h2>
+
+        <div class="gems-container">
+            <!-- Card 1 -->
+            <div class="gem-card">
+                <div class="gem-image-wrapper">
+                    <img src="pictures/nasi lemak.jpg" alt="Nasi Lemak Kampung">
+                    <div class="gem-name-overlay">Nasi Lemak Kampung</div>
+                </div>
+                <div class="gem-info">
+                    <div class="info-row">
+                        <div class="gem-type">Malay Cuisine</div>
+                        <div class="fav-icon">❤</div>
+                    </div>
+                    <div class="gem-location">Kampung Baru, KL</div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="gem-card">
+                <div class="gem-image-wrapper">
+                    <img src="pictures/lok-lok.jpg" alt="Penang Lok Lok Van">
+                    <div class="gem-name-overlay">Penang Lok Lok Van</div>
+                </div>
+                <div class="gem-info">
+                    <div class="info-row">
+                        <div class="gem-type">Skewered Street Food</div>
+                        <div class="fav-icon">❤</div>
+                    </div>
+                    <div class="gem-location">Gurney Drive, Penang</div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="gem-card">
+                <div class="gem-image-wrapper">
+                    <img src="pictures/char-kway-teow.jpg" alt="Char Kway Teow">
+                    <div class="gem-name-overlay">Char Kway Teow</div>
+                </div>
+                <div class="gem-info">
+                    <div class="info-row">
+                        <div class="gem-type">Chinese Stir-Fry</div>
+                        <div class="fav-icon">❤</div>
+                    </div>
+                    <div class="gem-location">George Town, Penang</div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="gem-card">
+                <div class="gem-image-wrapper">
+                    <img src="pictures/roti-canai.jpg" alt="Roti Canai Stall">
+                    <div class="gem-name-overlay">Roti Canai Stall</div>
+                </div>
+                <div class="gem-info">
+                    <div class="info-row">
+                        <div class="gem-type">Indian Breakfast</div>
+                        <div class="fav-icon">❤</div>
+                    </div>
+                    <div class="gem-location">Brickfields, KL</div>
+                </div>
+            </div>
+
+            <!-- Final card: View more -->
+            <div class="more-card">
+                <!--Need HTML GEMS-->
+                <a href="#">Click to access more →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG & ARTICLES -->
+    <section class="blog-section">
+        <h2>Blog & Articles</h2>
+        <div class="blog-container">
+            <!-- Blog 1 -->
+            <div class="blog-post">
+                <img src="pictures/blog1.jpg" alt="Blog Image">
+                <div class="blog-content">
+                    <h3>Today's StreetDeli: Fresh Picks from the Stalls'</h3>
+                    <a href="#">Continue Reading</a> <!--Need html link,below also-->
+                </div>
+            </div>
+
+
+            <!-- Blog 2 -->
+            <div class="blog-post">
+                <img src="pictures/blog2.jpg" alt="Hidden Gems" />
+                <div class="blog-content">
+                    <h3>Hidden Gems: Must-Try Street Food You've Never Heard Of</h3>
+                    <a href="#">Continue Reading</a>
+                </div>
+            </div>
+
+            <!-- Blog 3 -->
+            <div class="blog-post">
+                <img src="pictures/blog3.jpg" alt="Street Food Diaries" />
+                <div class="blog-content">
+                    <h3>Street Food Diaries: Flavors That Tell a Story</h3>
+                    <a href="#">Continue Reading</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="read-more-btn">
+            <a href="#">Read More</a>
+            <!--Need HTML!! for #-->
+        </div>
+    </section>
+
+    <!-- COMMUNITY & FORUMS -->
+    <section class="testimonials">
+        <h2>Community & Forums</h2>
+        <div class="cards">
+            <!-- Card 1 -->
+            <div class="card">
+                <p class="quote">“The best restaurant”</p>
+                <p class="content">
+                    Last night, we dined at place and were simply blown away. From the moment we stepped in, we were enveloped in an inviting atmosphere and greeted with warm smiles.
+                </p>
+                <div class="author">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sophie Robson">
+                    <div>
+                        <strong>Sophie Robson</strong><br>
+                        <span>Los Angeles, CA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <p class="quote">“Simply delicious”</p>
+                <p class="content">
+                    Place exceeded my expectations on all fronts. The ambiance was cozy and relaxed, making it a perfect venue for our anniversary dinner. Each dish was prepared and beautifully presented.
+                </p>
+                <div class="author">
+                    <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Matt Cannon">
+                    <div>
+                        <strong>Matt Cannon</strong><br>
+                        <span>San Diego, CA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <p class="quote">“One of a kind restaurant”</p>
+                <p class="content">
+                    The culinary experience at place is first to none. The atmosphere is vibrant, the food – nothing short of extraordinary. The food was the highlight of our evening. Highly recommended.
+                </p>
+                <div class="author">
+                    <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Andy Smith">
+                    <div>
+                        <strong>Andy Smith</strong><br>
+                        <span>San Francisco, CA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEXT BUTTON -->
+        <div class="next-button">
+            <a href="#" class="arrow-button">
+                <!--NEED HTML!!-->
+                Next →
+            </a>
+        </div>
+    </section>
+
+    <!-- PROMO SECTION -->
+    <section class="promo-section">
+        <div class="promo-bg-container">
+            <div class="promo-card">
+                <div class="toggle-tabs">
+                    <span id="vendor-tab" class="active">Vendor</span>
+                    <span id="reader-tab">Reader</span>
+                </div>
+
+                <h2 id="promo-title">Hi, Vendors!</h2>
+
+                <p id="promo-description">Join us and get promoted today!</p>
+
+                <!--NEED HTML MORE INFORMATION-->
+                <a href="#" class="info-link">Get more information →</a>
+
+
+                <div class="subscribe-box">
+                    <p id="subscribe-text">Your chance to be seen. Grow with us!</p>
+                    <!--NEED HTML FOR #!!!-->
+                    <a href="#" class="subscribe-btn">Subscribe ></a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-section">
+                    <h4><a href="add-on page/about.html">ABOUT</a></h4>
+                    <p>About StreetDeli</p>
+                    <p>About Vendor</p>
+                    <p>About User</p>
+                </div>
+                <div class="footer-section">
+                    <h4><a href="add-on page/help.html">HELP & PRIVACY</a></h4>
+                    <p>Contact</p>
+                    <p>Image Use Privacy</p>
+                </div>
+                <div class="footer-section">
+                    <h4><a href="add-on page/features.html">FEATURES</a></h4>
+                    <p>All Food</p>
+                    <p>Blog & Articles</p>
+                </div>
+                <div class="footer-section">
+                    <h4><a href="add-on page/related.html">RELATED</a></h4>
+                    <p>StreetBite Asian</p>
+                    <p>Street2025</p>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <h2>StreetDeli.</h2>
+                <p>Est. 2025</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© StreetDeli 2025</p>
+            <p>Privacy Policy & Terms</p>
+            <p>Site Credits</p>
+            <p>All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+
+        // OVERLAY MENU
+        function toggleMenu() {
+            const menu = document.getElementById("overlay-menu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+
+        // Optional: Hide menu on page load for safety
+        window.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("overlay-menu").style.display = "none";
+        });
+
+        // PROMO SECTION
+        const vendorTab = document.getElementById('vendor-tab');
+        const readerTab = document.getElementById('reader-tab');
+
+        const title = document.getElementById('promo-title');
+        const description = document.getElementById('promo-description');
+        const subscribeText = document.getElementById('subscribe-text');
+
+        vendorTab.addEventListener('click', () => {
+            vendorTab.classList.add('active');
+            readerTab.classList.remove('active');
+
+            title.textContent = "Hi, Vendors!";
+            description.textContent = "Join us and get promoted today!";
+            subscribeText.textContent = "Your chance to be seen. Grow with us!";
+        });
+
+        readerTab.addEventListener('click', () => {
+            readerTab.classList.add('active');
+            vendorTab.classList.remove('active');
+
+            title.textContent = "Hi, Readers!";
+            description.textContent = "Discover the latest stories and updates!";
+            subscribeText.textContent = "Join our community and never miss a beat!";
+        });
+
+        //?
+        document.querySelectorAll('.fav-icon').forEach(icon => {
+            icon.addEventListener('click', () => {
+                icon.classList.toggle('active');
+            });
+        });
+    </script>
+
+
+</body>
+</html>

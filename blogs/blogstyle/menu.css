@@ -1,0 +1,71 @@
+/* Hide overlay by default */
+#overlay-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  z-index: 1000;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Left side links */
+.menu-left {
+  position: absolute;
+  top: 80px;
+  left: 40px;
+}
+
+.menu-links li {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.menu-links a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+/* Right-side contact */
+.menu-right {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  color: white;
+  text-align: left;
+}
+
+.contact-info hr {
+  border-top: 2px dotted white;
+  margin: 10px 0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a img {
+  width: 25px;
+  height: 25px;
+  filter: brightness(0) invert(1);
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}

@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StreetDeli Login</title>
+    <link rel="stylesheet" href="css/loginPage.css">
+        
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo">StreetDeli.</h1>
+        <p class="subtitle">Enter your mobile or email to begin</p>
+
+        <div class="input-tabs">
+            <span id="tab-phone" class="active">Phone Number</span>
+            <span id="tab-email">E-mail Address</span>
+        </div>
+
+        <form id="login-form">
+            <div id="phone-field">
+                <div class="phone-input">
+                    <span class="prefix">+60</span>
+                    <input type="tel" id="phone" name="phone" placeholder="123456789" />
+                </div>
+                <span class="error" id="phone-error"></span>
+            </div>
+
+            <div id="email-field" style="display: none;">
+                <input type="email" id="email" name="email" placeholder="Email address" />
+                <span class="error" id="email-error"></span>
+            </div>
+
+            <input type="password" id="password" name="password" placeholder="Password" required />
+            <span class="error" id="password-error"></span>
+            <button class="login-btn" type="button" onclick="goToHomepage()">Log In</button>
+            <button class="signup-btn" type="button" onclick="window.location.href='add-on page/signupPage.html'">Sign Up</button>
+
+            <div class="divider">Or</div>
+
+            <button class="facebook-btn" type="button" onclick="facebookLogin()">
+                <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="FB" />
+                Continue with Facebook
+            </button>
+
+            <p id="fb-message" style="text-align: center; display: none; color: #555;">
+                Connecting to Facebook...
+            </p>
+        </form>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-section">
+                    <h4><a href="add-on page/about.html">ABOUT</a></h4>
+                    <p>About StreetDeli</p>
+                    <p>About Vendor</p>
+                    <p>About User</p>
+                </div>
+                <div class="footer-section">
+                    <h4><a href="add-on page/help.html">HELP & PRIVACY</a></h4>
+                    <p>Contact</p>
+                    <p>Image Use Privacy</p>
+                </div>
+                <div class="footer-section">
+                    <h4><a href="add-on page/features.html">FEATURES</a></h4>
+                    <p>All Food</p>
+                    <p>Blog & Articles</p>
+                </div>
+                <div class="footer-section">
+                    <h4><a href="add-on page/related.html">RELATED</a></h4>
+                    <p>StreetBite Asian</p>
+                    <p>Street2025</p>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <h2>StreetDeli.</h2>
+                <p>Est. 2025</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© StreetDeli 2025</p>
+            <p>Privacy Policy & Terms</p>
+            <p>Site Credits</p>
+            <p>All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        const tabEmail = document.getElementById('tab-email');
+        const tabPhone = document.getElementById('tab-phone');
+        const emailField = document.getElementById('email-field');
+        const phoneField = document.getElementById('phone-field');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const emailError = document.getElementById('email-error');
+        const phoneError = document.getElementById('phone-error');
+        const passwordInput = document.getElementById('password');
+        const passwordError = document.getElementById('password-error');
+
+        // Switch to Email
+        tabEmail.addEventListener('click', () => {
+            tabEmail.classList.add('active');
+            tabPhone.classList.remove('active');
+            emailField.style.display = 'block';
+            phoneField.style.display = 'none';
+        });
+
+        // Switch to Phone
+        tabPhone.addEventListener('click', () => {
+            tabPhone.classList.add('active');
+            tabEmail.classList.remove('active');
+            emailField.style.display = 'none';
+            phoneField.style.display = 'block';
+        });
+
+        function goToHomepage() {
+            const isEmailMode = tabEmail.classList.contains("active");
+            const password = passwordInput.value.trim();
+            let payload = { password };
+
+            // Reset errors
+            emailError.textContent = "";
+            phoneError.textContent = "";
+            passwordError.textContent = "";
+
+            // Validation
+            if (isEmailMode) {
+                const email = emailInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email) {
+                    emailError.textContent = "Email is required";
+                    return;
+                } else if (!emailRegex.test(email)) {
+                    emailError.textContent = "Invalid email format";
+                    return;
+                }
+                payload.email = email;
+            } else {
+                const phone = phoneInput.value.trim();
+                const phoneRegex = /^[0-9]{7,15}$/; // only digits, 7–15 chars
+                if (!phone) {
+                    phoneError.textContent = "Phone number is required";
+                    return;
+                } else if (!phoneRegex.test(phone)) {
+                    phoneError.textContent = "Invalid phone format";
+                    return;
+                }
+                payload.phone = phone;
+            }
+
+            if (!password) {
+                passwordError.textContent = "Password is required";
+                return;
+            }
+
+            // Send to backend
+            fetch("http://localhost:3000/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = "homePage.html"; // redirect
+                    } else {
+                        // Clear previous errors first
+                        emailError.textContent = "";
+                        phoneError.textContent = "";
+                        passwordError.textContent = "";
+
+                        // Show message only in the correct place
+                        if (data.message.includes("password")) {
+                            passwordError.textContent = data.message;
+                        } else {
+                            if (isEmailMode) {
+                                emailError.textContent = data.message;
+                            } else {
+                                phoneError.textContent = data.message;
+                            }
+                        }
+                    }
+                })
+                .catch(err => console.error("Error:", err));
+        }
+
+
+        function facebookLogin() {
+            // Skip validation and show message
+            document.getElementById("fb-message").style.display = "block";
+
+            // Simulate login and redirect
+            setTimeout(() => {
+                window.location.href = "homePage.html";  // Replace with your real target
+            }, 1500);
+        }
+
+    </script>
+
+</body>
+</html>

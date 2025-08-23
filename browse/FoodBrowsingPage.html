@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreetDell - Food Browsing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+            position: relative;
+        }
+
+        .hamburger-menu span {
+            width: 25px;
+            height: 3px;
+            background-color: #2c3e50;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger-menu:hover span {
+            background-color: #053529;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown-menu ul li {
+            border-bottom: 1px solid #f8f9fa;
+        }
+
+        .dropdown-menu ul li:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu ul li a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #34495e;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu ul li a:hover {
+            color: #053529;
+            background-color: #f8f9fa;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .logo span {
+            color:#053529 ;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .search-icon:hover {
+            background-color:#053529 ;
+            color: white;
+        }
+
+        .search-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .search-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .search-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .search-box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .search-overlay.show .search-box {
+            transform: scale(1);
+        }
+
+        .search-input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: #053529;
+        }
+
+        .search-submit {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #053529;
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .search-submit:hover {
+            background-color:#053529;
+        }
+
+        .search-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #7f8c8d;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-close:hover {
+            color: #053529;
+        }
+
+        .search-results {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-result-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .no-search-results {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .user-profile {
+            width: 40px;
+            height: 40px;
+            background-color:#053529;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .user-profile:hover {
+            background-color: #053529;
+            transform: scale(1.05);
+        }
+
+        .user-profile svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .breadcrumb {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .breadcrumb-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .breadcrumb-content a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .breadcrumb-content a:hover {
+            color: #053529;
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 280px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-right: 25px;
+            height: fit-content;
+        }
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-header h2 {
+            font-size: 18px;
+            color: #2c3e50;
+        }
+
+        .clear-all {
+            color: #053529;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: underline;
+        }
+
+        .filter-section {
+            margin-bottom: 25px;
+        }
+
+        .filter-section h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #2d343d;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-options {
+            list-style: none;
+        }
+
+        .filter-options li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .filter-options li input {
+            margin-right: 10px;
+        }
+
+        .filter-options li label {
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .show-more {
+            color: #053529;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            text-decoration: underline;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .results-header h2 {
+            font-size: 22px;
+            color: #0c0d0e;
+        }
+
+        .sort-options select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #fff;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .food-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .food-card.hidden {
+            display: none;
+        }
+
+        .food-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .food-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .food-card:hover .food-image img {
+            transform: scale(1.05);
+        }
+
+        .food-info {
+            padding: 15px;
+        }
+
+        .food-title {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .food-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .food-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .food-price {
+            font-weight: bold;
+            color: #111010;
+        
+        }
+
+        .food-rating {
+            color: #f39c12;
+            display: flex;
+            align-items: center;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #b1bfbf;
+            font-size: 18px;
+            margin: 40px 0;
+        }
+
+        /* Footer Styles */
+        footer {
+            background:#053529;
+            color: #ecf0f1;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #f2f5f7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #2d3542;
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 25px;
+            }
+
+            .food-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-content {
+                padding: 0 15px;
+            }
+
+            .left-section {
+                gap: 15px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .search-box {
+                padding: 20px;
+                margin: 0 20px;
+            }
+
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .sort-options {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="left-section">
+                <!-- Hamburger Menu -->
+                <div class="hamburger-menu" onclick="toggleDropdown()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <ul>
+                            <li><a href="#" onclick="closeDropdown()">Home</a></li>
+                            <li><a href="#" onclick="closeDropdown()">All Food</a></li>
+                            <li><a href="#" onclick="closeDropdown()">Blog & Articles</a></li>
+                            <li><a href="#" onclick="closeDropdown()">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Logo -->
+                <div class="logo">Street<span>Dell.</span></div>
+            </div>
+
+            <div class="right-section">
+                <!-- Search Icon -->
+                <div class="search-container">
+                    <div class="search-icon" onclick="openSearch()">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- User Profile Icon -->
+                <div class="user-profile" onclick="handleUserProfile()">
+                    <svg fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay" onclick="closeSearchOnOverlay(event)">
+        <div class="search-box">
+            <button class="search-close" onclick="closeSearch()">&times;</button>
+            <div class="search-input-container">
+                <input type="text" class="search-input" id="search-input" placeholder="Search for food items..."
+                    onkeyup="performSearch()" onkeypress="handleSearchEnter(event)">
+                <button class="search-submit" onclick="performSearch()">
+                    <svg fill="currentColor" viewBox="0 0 20 20" style="width: 16px; height: 16px;">
+                        <path fill-rule="evenodd"
+                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="search-results" id="search-results">
+                <!-- Search results will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="#">Home</a> / <a href="#">Browse</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="filter-header">
+                <h2>Filtered by</h2>
+                <button class="clear-all" onclick="clearAllFilters()">Clear all</button>
+            </div>
+
+            <div class="filter-section">
+                <h3>Trending</h3>
+                <ul class="filter-options">
+                    <li><input type="checkbox" id="halal" data-filter="halal"><label for="halal">Halal</label></li>
+                    <li><input type="checkbox" id="non-halal" data-filter="non-halal"><label
+                            for="non-halal">NON-halal</label></li>
+                </ul>
+            </div>
+
+            <div class="filter-section">
+                <h3>Dietary</h3>
+                <ul class="filter-options">
+                    <li><input type="checkbox" id="dietary-halal" data-filter="halal"><label
+                            for="dietary-halal">Halal</label></li>
+                    <li><input type="checkbox" id="non-halal-owned" data-filter="non-halal"><label
+                            for="non-halal-owned">NON-halal</label></li>
+                    <li><input type="checkbox" id="healthy-eat" data-filter="healthy"><label for="healthy-eat">Healthy
+                            Eat</label></li>
+                </ul>
+            </div>
+
+            <div class="filter-section">
+                <h3>Recommendation</h3>
+                <ul class="filter-options">
+                    <li><input type="checkbox" id="trending" data-filter="trending"><label
+                            for="trending">Trending</label></li>
+                    <li><input type="checkbox" id="popular" data-filter="popular"><label for="popular">Popular</label>
+                    </li>
+                    <li><input type="checkbox" id="seasonal" data-filter="seasonal"><label
+                            for="seasonal">Seasonal</label></li>
+                    <li><input type="checkbox" id="hidden-gems" data-filter="hidden"><label for="hidden-gems">Hidden
+                            Gems</label></li>
+                    <li><input type="checkbox" id="michelin-2025" data-filter="michelin2025"><label
+                            for="michelin-2025">Michelin 2025</label></li>
+                    <li><input type="checkbox" id="michelin-2024" data-filter="michelin2024"><label
+                            for="michelin-2024">Michelin 2024</label></li>
+                </ul>
+                <button class="show-more">Show more</button>
+            </div>
+
+            <div class="filter-section">
+                <h3>Type</h3>
+                <ul class="filter-options">
+                    <li><input type="checkbox" id="chinese" data-filter="chinese"><label for="chinese">Chinese</label>
+                    </li>
+                    <li><input type="checkbox" id="malay" data-filter="malay"><label for="malay">Malay</label></li>
+                    <li><input type="checkbox" id="indian" data-filter="indian"><label for="indian">Indian</label></li>
+                    <li><input type="checkbox" id="western" data-filter="western"><label for="western">Western</label>
+                    </li>
+                    <li><input type="checkbox" id="desserts" data-filter="desserts"><label
+                            for="desserts">Desserts</label></li>
+                    <li><input type="checkbox" id="beverages" data-filter="beverages"><label
+                            for="beverages">Beverages</label></li>
+                    <li><input type="checkbox" id="light" data-filter="light"><label for="light">Light</label></li>
+                </ul>
+                <button class="show-more">Show more</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="results-header">
+                <h2 id="results-count">Showing 12 results</h2>
+                <div class="sort-options">
+                    <select id="sort-select">
+                        <option value="recommended">Sort by: Recommended</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="food-grid" id="food-grid">
+                <!-- Food Item 1 -->
+                <div class="food-card" data-cuisine="chinese" data-type="chinese" data-dietary="non-halal"
+                    data-recommendation="trending" data-rating="4.7" data-name="Dim Sum Platter" data-price="15.90">
+                    <div class="food-image">
+                        <img src="https://cdn.cnn.com/cnnnext/dam/assets/160325033254-hk-dim-sum-fook-lam-moon.jpg"
+                            alt="Dim Sum">
+                    </div>
+                    <div class="food-info">
+                        <h3 class="food-title">Dim Sum Platter</h3>
+                        <p class="food-description">Assorted steamed dumplings with pork and shrimp.</p>
+                        <div class="food-meta">
+                            <span class="food-price">RM15.90</span>
+                            <span class="food-rating">★ 4.7 (186)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 2 -->
+                <div class="food-card" data-cuisine="malay" data-type="malay" data-dietary="halal"
+                    data-recommendation="popular" data-rating="4.8" data-name="Nasi Lemak Special" data-price="8.90">
+                    <div class="food-image">
+                        <img src="https://img-global.cpcdn.com/recipes/ca7a51d6d946b151/1200x630cq70/photo.jpg"
+                            alt="Nasi Lemak">
+                    </div>
+                    <div class="food-info">
+                        <h3 class="food-title">Nasi Lemak Special</h3>
+                        <p class="food-description">Coconut rice with sambal, fried chicken, and egg.</p>
+                        <div class="food-meta">
+                            <span class="food-price">RM8.90</span>
+                            <span class="food-rating">★ 4.8 (245)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 3 -->
+                <div class="food-card" data-cuisine="malay" data-type="malay" data-dietary="halal"
+                    data-recommendation="trending" data-rating="4.6" data-name="Mee Goreng Mamak" data-price="6.50">
+                    <div class="food-image">
+                        <img src="https://2.bp.blogspot.com/-beBEd3TNchI/TxA7-YKJaFI/AAAAAAAADos/f6nbZdFQz7o/s1600/IMG_9184.JPG"
+                            alt="Mee Goreng">
+                    </div>
+                    <div class="food-info">
+                        <h3 class="food-title">Mee Goreng Mamak</h3>
+                        <p class="food-description">Spicy fried noodles with tofu, bean sprouts, and egg.</p>
+                        <div class="food-meta">
+                            <span class="food-price">RM6.50</span>
+                            <span class="food-rating">★ 4.6 (198)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 4 -->
+                <div class="food-card" data-cuisine="western" data-type="western" data-dietary="non-halal"
+                    data-recommendation="popular" data-rating="4.5" data-name="Margherita Pizza" data-price="22.90">
+                    <div class="food-image">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Pizza">
+                    </div>
+                    <div class="food-info">
+                        <h3 class="food-title">Margherita Pizza</h3>
+                        <p class="food-description">Classic pizza with tomato sauce, mozzarella, and basil.</p>
+                        <div class="food-meta">
+                            <span class="food-price">RM22.90</span>
+                            <span class="food-rating">★ 4.5 (156)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 5 -->
+                <div class="food-card" data-cuisine="malay" data-type="malay" data-dietary="halal"
+                    data-recommendation="trending" data-rating="4.7" data-name="Ramly Burger Special" data-price="7.50">
+                    <div class="food-image">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Ramly Burger">
+                    </div>
+                    <div class="food-info">
+                        <h3 class="food-title">Ramly Burger Special</h3>
+                        <p class="food-description">Iconic Malaysian street burger with beef patty and egg wrap.</p>
+                        <div class="food-meta">
+                            <span class="food-price">RM7.50</span>
+                            <span class="food-rating">★ 4.7 (220)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 6 -->
+                <div class="food-card" data-cuisine="western" data-type="desserts" data-dietary="non-halal"
+                    data-recommendation="seasonal" data-rating="4.6" data-name="Chocolate Lava Cake" data-price="12.90">
+                    <div class="food-image">
+                        <img src="https://thesuburbansoapbox.com/wp-content/uploads/2023/01/ChocolateLavaCakeHiRes-11.jpg"
+                            alt="Chocolate Cake">
+                    </div>
+                    <div class="food-info">
+                        <h3 class="food-title">Chocolate Lava Cake</h3>
+                        <p class="food-description">Warm chocolate cake with molten chocolate center.</p>
+                        <div class="food-meta">
+                            <span class="food-price">RM12.90</span>
+                            <span class="food-rating">★ 4.6 (142)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 7 -->
+                <div class="food-card" data-cuisine="western" data-type="western" data-dietary="non-halal"
+                    data-recommendation="popular" data-rating="4.4" data-name="Fluffy Pancakes" data-price="14.90">
+                    <div class="food-image">
+                        <img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Pancakes">
+                    </div>
+                    <div class="food-info">
+                        <h3 class="food-title">Fluffy Pancaves</h3>
+                        <p class="food-description">Stack of fluffy pancakes with butter and maple syrup.</p>
+                        <div class="food-meta">
+                            <span class="food-price">RM14.90</span>
+                            <span class="food-rating">★ 4.4 (108)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 8 -->
+                <div class="food-card" data-cuisine="beverages" data-type="beverages" data-dietary="halal"
+                    data-recommendation="trending" data-rating="4.5" data-name="Brown Sugar Bubble Tea"
+                    data-price="9.90">
+                    <div class="food-image">
+                        <img src="https://i.pinimg.com/originals/a1/53/16/a15316e27d6c782708ae099f5c7b903e.jpg"
+                            alt="Bubble Tea">
+                    </div>
+                    <div class="food-info">
+                        <h3 class="food-title">Brown Sugar Bubble Tea</h3>
+                        <p class="food-description">Creamy milk tea with brown sugar pearls and fresh milk.</p>
+                        <div class="food-meta">
+                            <span class="food-price">RM9.90</span>
+                            <span class="food-rating">★ 4.5 (187)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 9 -->
+                <div class="food-card" data-cuisine="malay" data-type="desserts" data-dietary="halal"
+                    data-recommendation="hidden" data-rating="4.6" data-name="Cendol Delight" data-price="6.90">
+                    <div class="food-image">
+                        <img src="https://asianinspirations.com.au/wp-content/uploads/2019/11/R00389-Cendol-1920x1280.jpg"
+                            alt="Cendol">
+                    </div>
+                    <div class="food-info">
+                        <h3 class="food-title">Cendol Delight</h3>
+                        <p class="food-description">Traditional Malaysian dessert with coconut milk and gula melaka.</p>
+                        <div class="food-meta">
+                            <span class="food-price">RM6.90</span>
+                            <span class="food-rating">★ 4.6 (134)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 10 -->
+                <div class="food-card" data-cuisine="indian" data-type="indian" data-dietary="halal"
+                    data-recommendation="michelin2024" data-rating="4.7" data-name="Tandoori Platter"
+                    data-price="28.90">
+                    <div class="food-image">
+                        <img src="https://images.slurrp.com/prod/recipe_images/better-butter/tandoori-paneer-platter_HX3XOHVHLY0WD9AXFZZG.webp"
+                            alt="Tandoori">
+                    </div>
+                    <div class="food-info">
+                        <h3 class="food-title">Tandoori Platter</h3>
+                        <p class="food-description">Assorted grilled meats with traditional Indian spices.</p>
+                        <div class="food-meta">
+                            <span class="food-price">RM28.90</span>
+                            <span class="food-rating">★ 4.7 (165)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 11 -->
+                <div class="food-card" data-cuisine="indian" data-type="light" data-dietary="halal"
+                    data-recommendation="healthy" data-rating="4.8" data-name="Vegetable Curry Bowl" data-price="12.49">
+                    <div class="food-image">
+                        <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Vegetable Curry">
+                    </div>
+                    <div class="food-info">
+                        <h3 class="food-title">Vegetable Curry Bowl</h3>
+                        <p class="food-description">Fresh vegetables in aromatic curry sauce with basmati rice.</p>
+                        <div class="food-meta">
+                            <span class="food-price">RM12.49</span>
+                            <span class="food-rating">★ 4.8 (95)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 12 -->
+                <div class="food-card" data-cuisine="western" data-type="desserts" data-dietary="non-halal"
+                    data-recommendation="michelin2025" data-rating="4.9" data-name="Tiramisu Cake" data-price="16.90">
+                    <div class="food-image">
+                        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Tiramisu">
+                    </div>
+                    <div class="food-info">
+                        <h3 class="food-title">Tiramisu Cake</h3>
+                        <p class="food-description">Classic Italian dessert with coffee-soaked ladyfingers and
+                            mascarpone.</p>
+                        <div class="food-meta">
+                            <span class="food-price">RM16.90</span>
+                            <span class="food-rating">★ 4.9 (89)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="no-results" id="no-results" style="display: none;">
+                <p>No food items match your current filters. Try adjusting your selection.</p>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>StreetDell</h3>
+                <ul>
+                    <li><a href="#">About Vendor</a></li>
+                    <li><a href="#">About Reader</a></li>
+                    <li><a href="#">All 2025</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>HELP</h3>
+                <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Image Use Privacy</a></li>
+                </ul>
+            </div>
+
+            <div class="filter-section">
+                <h3>Features</h3>
+                <ul>
+                    <li><a href="#">All Food</a></li>
+                    <li><a href="#">Blog & Articles</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Related</h3>
+                <ul>
+                    <li><a href="#">StreetSite Admin</a></li>
+                    <li><a href="#">Street2025</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© StreetDell 2025</p>
+            <p>Privacy Policy & Terms | Site Credits | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Food data with attributes for filtering
+        let allFoodItems = [];
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize food items array
+            allFoodItems = Array.from(document.querySelectorAll('.food-card'));
+            console.log('Found', allFoodItems.length, 'food items');
+
+            // Add event listeners to all checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            console.log('Found', checkboxes.length, 'checkboxes');
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    console.log('Filter changed:', this.id, this.checked);
+                    applyFilters();
+                });
+            });
+
+            // Add event listener to sort dropdown
+            const sortSelect = document.getElementById('sort-select');
+            if (sortSelect) {
+                sortSelect.addEventListener('change', sortItems);
+            }
+        });
+
+        function applyFilters() {
+            console.log('Applying filters...');
+            let visibleCount = 0;
+
+            // Get all active filters
+            const activeFilters = {};
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+                const filterType = checkbox.getAttribute('data-filter');
+                activeFilters[filterType] = true;
+            });
+
+            console.log('Active filters:', activeFilters);
+
+            allFoodItems.forEach((item, index) => {
+                let shouldShow = true;
+
+                // If no filters are selected, show all items
+                if (Object.keys(activeFilters).length === 0) {
+                    item.style.display = 'block';
+                    item.classList.remove('hidden');
+                    visibleCount++;
+                    return;
+                }
+
+                // Check if item matches any active filter
+                let matchesFilter = false;
+
+                // Check cuisine filters
+                if (activeFilters.chinese && item.dataset.cuisine === 'chinese') matchesFilter = true;
+                if (activeFilters.malay && item.dataset.cuisine === 'malay') matchesFilter = true;
+                if (activeFilters.indian && item.dataset.cuisine === 'indian') matchesFilter = true;
+                if (activeFilters.western && item.dataset.cuisine === 'western') matchesFilter = true;
+
+                // Check type filters
+                if (activeFilters.desserts && item.dataset.type === 'desserts') matchesFilter = true;
+                if (activeFilters.beverages && item.dataset.type === 'beverages') matchesFilter = true;
+                if (activeFilters.light && item.dataset.type === 'light') matchesFilter = true;
+
+                // Check dietary filters
+                if (activeFilters.halal && item.dataset.dietary === 'halal') matchesFilter = true;
+                if (activeFilters['non-halal'] && item.dataset.dietary === 'non-halal') matchesFilter = true;
+                if (activeFilters.healthy && item.dataset.recommendation === 'healthy') matchesFilter = true;
+
+                // Check recommendation filters
+                if (activeFilters.trending && item.dataset.recommendation === 'trending') matchesFilter = true;
+                if (activeFilters.popular && item.dataset.recommendation === 'popular') matchesFilter = true;
+                if (activeFilters.seasonal && item.dataset.recommendation === 'seasonal') matchesFilter = true;
+                if (activeFilters.hidden && item.dataset.recommendation === 'hidden') matchesFilter = true;
+                if (activeFilters.michelin2025 && item.dataset.recommendation === 'michelin2025') matchesFilter = true;
+                if (activeFilters.michelin2024 && item.dataset.recommendation === 'michelin2024') matchesFilter = true;
+
+                // Show or hide the item based on filter match
+                if (matchesFilter) {
+                    item.style.display = 'block';
+                    item.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                    item.classList.add('hidden');
+                }
+            });
+
+            // Update results count
+            document.getElementById('results-count').textContent = `Showing ${visibleCount} results`;
+
+            // Show no results message if needed
+            const noResults = document.getElementById('no-results');
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+
+            // Apply sorting if any items are visible
+            if (visibleCount > 0) {
+                sortItems();
+            }
+        }
+
+        function sortItems() {
+            const sortSelect = document.getElementById('sort-select');
+            const sortValue = sortSelect.value;
+            const foodGrid = document.getElementById('food-grid');
+            const visibleItems = Array.from(allFoodItems).filter(item => item.style.display !== 'none');
+
+            // Sort based on selected option
+            visibleItems.sort((a, b) => {
+                switch (sortValue) {
+                    case 'price-low':
+                        return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+                    case 'price-high':
+                        return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+                    case 'rating':
+                        return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
+                    case 'name':
+                        return a.dataset.name.localeCompare(b.dataset.name);
+                    default:
+                        return 0; // Recommended - keep original order
+                }
+            });
+
+            // Reorder items in the DOM
+            visibleItems.forEach(item => {
+                foodGrid.appendChild(item);
+            });
+        }
+
+        function clearAllFilters() {
+            // Uncheck all checkboxes
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+
+            // Apply filters (which will show all items)
+            applyFilters();
+        }
+
+        function openSearch() {
+            const searchOverlay = document.getElementById('search-overlay');
+            searchOverlay.classList.add('show');
+            document.getElementById('search-input').focus();
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when search is open
+        }
+
+        function closeSearch() {
+            const searchOverlay = document.getElementById('search-overlay');
+            searchOverlay.classList.remove('show');
+            document.body.style.overflow = ''; // Re-enable scrolling
+        }
+
+        function closeSearchOnOverlay(event) {
+            // Only close if the overlay itself is clicked, not the search box
+            if (event.target.id === 'search-overlay') {
+                closeSearch();
+            }
+        }
+
+        function handleSearchEnter(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        }
+
+        function performSearch() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+            const searchResults = document.getElementById('search-results');
+
+            // Clear previous results
+            searchResults.innerHTML = '';
+
+            if (searchTerm === '') {
+                searchResults.innerHTML = '<div class="no-search-results">Please enter a search term</div>';
+                return;
+            }
+
+            // Filter food items based on search term
+            const matchingItems = allFoodItems.filter(item => {
+                const name = item.dataset.name.toLowerCase();
+                const description = item.querySelector('.food-description').textContent.toLowerCase();
+                const cuisine = item.dataset.cuisine.toLowerCase();
+
+                return name.includes(searchTerm) ||
+                    description.includes(searchTerm) ||
+                    cuisine.includes(searchTerm);
+            });
+
+            // Display results
+            if (matchingItems.length === 0) {
+                searchResults.innerHTML = '<div class="no-search-results">No food items found matching "' + searchTerm + '"</div>';
+            } else {
+                matchingItems.forEach(item => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                <h4>${item.dataset.name}</h4>
+                <p>${item.querySelector('.food-description').textContent}</p>
+                <span class="food-price">${item.querySelector('.food-price').textContent}</span>
+            `;
+
+                    // Add click event to focus on the actual food item
+                    resultItem.addEventListener('click', function () {
+                        closeSearch();
+                        // Scroll to the food item
+                        item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                        // Add highlight effect
+                        item.style.boxShadow = '0 0 0 3px #e74c3c';
+                        setTimeout(() => {
+                            item.style.boxShadow = '';
+                        }, 2000);
+                    });
+
+                    searchResults.appendChild(resultItem);
+                });
+            }
+        }
+
+        // Update the toggleDropdown and closeDropdown functions to work with the search overlay
+        function toggleDropdown() {
+            const dropdownMenu = document.getElementById('dropdown-menu');
+            dropdownMenu.classList.toggle('show');
+        }
+
+        function closeDropdown() {
+            const dropdownMenu = document.getElementById('dropdown-menu');
+            dropdownMenu.classList.remove('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function (event) {
+            const dropdownMenu = document.getElementById('dropdown-menu');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+            if (dropdownMenu.classList.contains('show') &&
+                !hamburgerMenu.contains(event.target) &&
+                !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+
+        // Handle user profile click
+        function handleUserProfile() {
+            alert('User profile functionality would go here.');
+        }
+    </script>
+</body>
+
+</html>

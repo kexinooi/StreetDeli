@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blogs & Articles - StreetDeli</title>
+    <link rel="stylesheet" href="blogstyle/style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header-title-container">
+      <!-- Slides container (backgrounds that slide) -->
+      <div class="header-slides">
+        <div
+          class="header-slide"
+          style="background-image: url('img/as.jpg')"
+          data-link="blogsKedah.html"
+          data-title="Kedah Street Food: Rustic Flavors of the Rice Bowl State"
+          data-author="Julie Christie"
+        ></div>
+        <div
+          class="header-slide"
+          style="background-image: url('img/kl.jpg')"
+          data-link="blogsKl.html"
+          data-title="Kuala Lumpur Street Food: Big City, Bold Flavors"
+          data-author="Julie Christie"
+        ></div>
+        <div
+          class="header-slide"
+          style="background-image: url('img/png.jpg')"
+          data-link="blogsPng.html"
+          data-title="Penang Street Food: Malaysia’s Flavor Capital"
+          data-author="Julie Christie"
+        ></div>
+      </div>
+
+      <div class="pro-container">
+        <!-- Top navigation bar -->
+        <div class="title-nav-container">
+          <h1>StreetDeli.</h1>
+          <img
+            src="img/nav.jpg"
+            alt="Navigation icon"
+            class="nav-icon"
+            width="25"
+            height="25"
+            onclick="toggleMenu()"
+          />
+        </div>
+        <img
+          src="img/pro.png"
+          width="40"
+          height="40"
+          alt="User profile"
+          class="profile-icon"
+        />
+      </div>
+
+      <!-- Overlayed blog text -->
+      <div class="hero-text">
+        <p class="hero-main" id="hero-main"><em></em></p>
+        <p id="hero-sub"></p>
+      </div>
+
+      <!-- Dots navigation -->
+      <div class="slider-dots"></div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="body-container">
+      <!-- BREADCRUMB -->
+      <nav id="browse-route" aria-label="breadcrumb">
+        <a href="../FrontEndAss Part 1/homePage.html">Home</a><span>/</span><span>Blogs and Articles</span>
+      </nav>
+
+      <!-- Last Read Article Box -->
+      <div class="last-read-wrapper">
+        <div
+          id="last-read-box"
+          style="
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+          "
+        ></div>
+      </div>
+
+      <!-- BLOG LIST -->
+      <section class="blog-list-col">
+        <div class="blog-list-row">
+          <!-- Article 1 -->
+          <article class="item-container">
+            <a href="blogsKedah.html">
+              <img src="img/as.jpg" alt="Kedah Street Food" class="blog-img" />
+            </a>
+            <div class="author-detail">
+              <div class="author-left">
+                <img src="img/fa1.jpg" alt="Author photo" />
+                <p class="author-name">John Jojo</p>
+              </div>
+              <time datetime="2024-10-15T15:15">October 15, 2024 - 3:15pm</time>
+            </div>
+            <a href="blogsKedah.html">
+              <div class="title-desc">
+                <h2 class="title">
+                  Kedah Street Food: Rustic Flavors of the Rice Bowl State
+                </h2>
+                <hr class="divider" />
+                <p class="desc">
+                  Kedah, known as Malaysia’s “Rice Bowl,” offers street food
+                  that feels homely and comforting, with strong Malay influences
+                  and a focus on fresh, local ingredients.
+                </p>
+              </div>
+            </a>
+            <div class="read-more"><a href="blogsKedah.html">Read more</a></div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="item-container">
+            <a href="blogsPng.html">
+              <img
+                src="img/png.jpg"
+                alt="Penang Street Food"
+                class="blog-img"
+              />
+            </a>
+            <div class="author-detail">
+              <div class="author-left">
+                <img src="img/fa1.jpg" alt="Author photo" />
+                <p class="author-name">John Jojo</p>
+              </div>
+              <time datetime="2024-10-15T15:15">October 15, 2024 - 3:15pm</time>
+            </div>
+            <a href="blogsPng.html">
+              <div class="title-desc">
+                <h2 class="title">
+                  Penang Street Food: Malaysia’s Flavor Capital
+                </h2>
+                <hr class="divider" />
+                <p class="desc">
+                  Penang, often hailed as Malaysia’s street food paradise, is a
+                  culinary treasure trove where every corner offers a different
+                  taste adventure. Influenced by Malay, Chinese, and Indian
+                  heritage, the island’s food scene is a blend of bold spices,
+                  fresh ingredients, and unique cooking techniques.
+                </p>
+              </div>
+            </a>
+            <div class="read-more"><a href="blogsPng.html">Read more</a></div>
+          </article>
+        </div>
+
+        <div class="blog-list-row">
+          <!-- Article 3 -->
+          <article class="item-container">
+            <a href="blogsKl.html">
+              <img src="img/kl.jpg" alt="KL Street Food" class="blog-img" />
+            </a>
+            <div class="author-detail">
+              <div class="author-left">
+                <img src="img/fa1.jpg" alt="Author photo" />
+                <p class="author-name">John Jojo</p>
+              </div>
+              <time datetime="2024-10-15T15:15">October 15, 2024 - 3:15pm</time>
+            </div>
+            <a href="blogsKl.html">
+              <div class="title-desc">
+                <h2 class="title">
+                  Kuala Lumpur Street Food: Big City, Bold Flavors
+                </h2>
+                <hr class="divider" />
+                <p class="desc">
+                  Kuala Lumpur’s street food reflects the energy of the city
+                  itself—fast-paced, diverse, and always exciting. Here, you can
+                  find both traditional Malaysian favorites and modern street
+                  food twists.
+                </p>
+              </div>
+            </a>
+            <div class="read-more"><a href="blogsKl.html">Read more</a></div>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="item-container">
+            <a href="blogsjohor.html">
+              <img src="img/jhr.jpg" alt="Johor Street Food" class="blog-img" />
+            </a>
+            <div class="author-detail">
+              <div class="author-left">
+                <img src="img/fa1.jpg" alt="Author photo" />
+                <p class="author-name">John Jojo</p>
+              </div>
+              <time datetime="2024-10-15T15:15">October 15, 2024 - 3:15pm</time>
+            </div>
+            <a href="blogsjohor.html">
+              <div class="title-desc">
+                <h2 class="title">Johor’s Street Food Gems You Must Try</h2>
+                <hr class="divider" />
+                <p class="desc">
+                  Johor’s street food reflects the region’s rich cultural
+                  mix—Malay, Chinese, and Indian influences combine to create
+                  bold, flavorful dishes that are both hearty and comforting.
+                  From bustling markets to roadside stalls, Johor’s offerings
+                  are a delight for any food lover.
+                </p>
+              </div>
+            </a>
+            <div class="read-more"><a href="blogsjohor.html">Read more</a></div>
+          </article>
+        </div>
+
+        <div class="blog-list-row">
+          <!-- Article 5 -->
+          <article class="item-container">
+            <a href="recipe.html">
+              <img src="img/nl.jpg" alt="Nasi Lemak Recipe" class="blog-img" />
+            </a>
+            <div class="author-detail">
+              <div class="author-left">
+                <img src="img/fa1.jpg" alt="Author photo" />
+                <p class="author-name">John Jojo</p>
+              </div>
+              <time datetime="2024-10-15T15:15">October 15, 2024 - 3:15pm</time>
+            </div>
+            <a href="recipe.html">
+              <div class="title-desc">
+                <h2 class="title">
+                  Recipe — How to Make Authentic Malaysian Nasi Lemak
+                </h2>
+                <hr class="divider" />
+                <p class="desc">
+                  If there’s one street food that unites Malaysians, it’s Nasi
+                  Lemak. Served everywhere from roadside stalls to fine dining
+                  restaurants, this dish is the perfect balance of creamy,
+                  spicy, and savory. Here’s how to make it at home.
+                </p>
+              </div>
+            </a>
+            <div class="read-more"><a href="recipe.html">Read more</a></div>
+          </article>
+
+          <!-- Article 6 -->
+          <article class="item-container">
+            <a href="survey.html">
+              <img
+                src="img/mly.jpg"
+                alt="Survey on Street Food"
+                class="blog-img"
+              />
+            </a>
+            <div class="author-detail">
+              <div class="author-left">
+                <img src="img/fa1.jpg" alt="Author photo" />
+                <p class="author-name">John Jojo</p>
+              </div>
+              <time datetime="2024-10-15T15:15">October 15, 2024 - 3:15pm</time>
+            </div>
+            <a href="survey.html">
+              <div class="title-desc">
+                <h2 class="title">
+                  Survey on Malaysians’ Favourite Street Food
+                </h2>
+                <hr class="divider" />
+                <p class="desc">
+                  Street food is part of Malaysia’s heartbeat, and recent
+                  surveys show just how deeply locals and tourists alike connect
+                  with these flavorful dishes. We conducted an informal poll
+                  with 300 participants—100 each from Penang, Kuala Lumpur, and
+                  Kedah—to find out which street foods capture people’s hearts
+                  (and stomachs).
+                </p>
+              </div>
+            </a>
+            <div class="read-more"><a href="survey.html">Read more</a></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PAGINATION -->
+      <nav id="next-pg-btn" aria-label="Pagination">
+        <button id="prev">Prev</button>
+        <button class="page-btn">1</button>
+        <button id="next">Next</button>
+      </nav>
+
+      <!-- WRITER FORM -->
+      <section id="form">
+        <div class="card">
+          <h2>Be Our Writer</h2>
+          <p>
+            Passionate about food? Time to shine! Drop us your articles and get
+            credits.
+          </p>
+          <a href="form.html" class="btn">Drop Here</a>
+        </div>
+      </section>
+
+      <!-- FOOTER SECTION -->
+      <div id="footer-placeholder"></div>
+    </main>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("overlay-menu");
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "block";
+        }
+      }
+
+      // Optional: load menu.html dynamically if using separate file
+      fetch("menu.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.body.insertAdjacentHTML("beforeend", data);
+        });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+
+      const lastReadBox = document.getElementById("last-read-box");
+
+      // Check localStorage for last read article
+      const lastArticleJSON = localStorage.getItem("lastArticle");
+
+      if (lastArticleJSON) {
+        const lastArticle = JSON.parse(lastArticleJSON);
+        lastReadBox.innerHTML = `
+        📖 Continue where you left off: 
+        <a href="${lastArticle.url}">${lastArticle.title}</a>
+        `;
+        lastReadBox.style.display = "block"; // show the box
+      } else {
+        lastReadBox.style.display = "none"; // hide if nothing saved
+      }
+
+      const slides = document.querySelectorAll(".header-slide");
+      const heroMain = document.getElementById("hero-main");
+      const heroSub = document.getElementById("hero-sub");
+      const dotsContainer = document.querySelector(".slider-dots");
+      let currentSlide = 0;
+
+      // Create dots dynamically
+      slides.forEach((slide, i) => {
+        const dot = document.createElement("button");
+        dot.classList.add("dot");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => showSlide(i));
+        dotsContainer.appendChild(dot);
+      });
+
+      // Function to show a slide
+      function showSlide(index) {
+        document.querySelector(
+          ".header-slides"
+        ).style.transform = `translateX(-${index * 100}%)`;
+
+        const slide = slides[index];
+        heroMain.innerHTML = `<em>${slide.dataset.title}</em>`;
+        heroSub.textContent = "Author: " + slide.dataset.author;
+
+        // Update active dot
+        document.querySelectorAll(".dot").forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+
+        currentSlide = index;
+      }
+
+      // Click slides to go to link
+      slides.forEach((slide) => {
+        slide.addEventListener("click", () => {
+          window.location.href = slide.dataset.link;
+        });
+      });
+
+      // Auto slide every 3s
+      setInterval(() => {
+        let next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+      }, 3000);
+
+      // Show first slide
+      showSlide(0);
+    </script>
+  </body>
+</html>

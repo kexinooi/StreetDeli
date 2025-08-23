@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: white;
+            color : black;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+
+        .tabs button {
+            width: 50%;
+            padding: 10px;
+            border: none;
+            background: #ddd;
+            cursor: pointer;
+        }
+
+        .tabs .active {
+            background: #007BFF;
+            background-color:black;
+            color: white;
+        }
+
+
+        input[type="tel"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .phone-input {
+            display: flex;
+            align-items: center;
+            margin: 10px 0 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 0;
+            height: 42px;
+            box-sizing: border-box;
+            background: white;
+            margin-bottom: 5px;
+        }
+
+            .phone-input .prefix {
+                padding: 0 10px;
+                background-color: #f9f9f9;
+                border-right: 1px solid #ccc;
+                font-size: 16px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                color: #333;
+                white-space: nowrap;
+            }
+
+            .phone-input input {
+                border: none;
+                outline: none;
+                flex: 1;
+                font-size: 16px;
+                padding: 0 10px;
+                height: 100%;
+            }
+
+        #result-message {
+            margin-top: 20px;
+            color: green;
+            font-size: 14px;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+
+       </style>
+
+   
+
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+
+        <div class="tabs">
+            <button id="tab-phone" class="active">Phone</button>
+            <button id="tab-email">Email</button>
+        </div>
+
+        <form id="signup-form">
+            <div id="phone-field">
+                <div class="phone-input">
+                    <span class="prefix">+60</span>
+                    <input type="tel" id="phone" name="phone" placeholder="123456789" />
+                </div>
+                <span class="error" id="phone-error"></span>
+            </div>
+
+            <div id="email-field" style="display: none;">
+                <input type="email" id="email" name="email" placeholder="Email address" />
+                <span class="error" id="email-error"></span>
+            </div>
+
+            <input type="password" id="password" name="password" placeholder="Password" required />
+            <span class="error" id="password-error"></span>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <p id="result-message"></p>
+
+    </div>
+
+    <script>
+        const tabPhone = document.getElementById("tab-phone");
+        const tabEmail = document.getElementById("tab-email");
+        const phoneField = document.getElementById("phone-field");
+        const emailField = document.getElementById("email-field");
+        const form = document.getElementById("signup-form");
+        const resultMessage = document.getElementById("result-message");
+
+        tabPhone.addEventListener("click", () => {
+            tabPhone.classList.add("active");
+            tabEmail.classList.remove("active");
+            phoneField.style.display = "block";
+            emailField.style.display = "none";
+        });
+
+        tabEmail.addEventListener("click", () => {
+            tabEmail.classList.add("active");
+            tabPhone.classList.remove("active");
+            emailField.style.display = "block";
+            phoneField.style.display = "none";
+        });
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const phone = document.getElementById("phone").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            const phoneError = document.getElementById("phone-error");
+            const emailError = document.getElementById("email-error");
+            const passwordError = document.getElementById("password-error");
+
+            // Reset errors
+            phoneError.textContent = "";
+            emailError.textContent = "";
+            passwordError.textContent = "";
+
+            let isValid = true;
+
+            if (tabPhone.classList.contains("active")) {
+                const phoneRegex = /^[0-9]{8,9}$/;
+                if (!phoneRegex.test(phone)) {
+                    phoneError.textContent = "Please enter a valid phone number (8–9 digits).";
+                    isValid = false;
+                }
+            }
+
+            if (tabEmail.classList.contains("active")) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    emailError.textContent = "Please enter a valid email address.";
+                    isValid = false;
+                }
+            }
+
+            if (password.length < 6) {
+                passwordError.textContent = "Password must be at least 6 characters.";
+                isValid = false;
+            }
+
+            if (!isValid) return;
+
+            // Show success message
+            resultMessage.style.color = "green";
+            resultMessage.textContent = "You signed up successfully";
+
+            // Redirect after 2 seconds
+            setTimeout(() => {
+                window.location.href = "../loginPage.html";
+            }, 1500);
+        });
+
+
+    </script>
+</body>
+</html>

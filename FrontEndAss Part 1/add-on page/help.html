@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help - StreetDeli</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background-color: white;
+            color: black;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+            section h2 {
+                color: darkgreen;
+                margin-bottom: 15px;
+            }
+
+            section p {
+                line-height: 1.6;
+                font-size: 16px;
+            }
+
+        .return-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .return-button button {
+                padding: 10px 20px;
+                background-color: darkgreen;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 15px;
+                cursor: pointer;
+            }
+
+        footer {
+            background-color:black;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top:20px;
+        }
+
+            footer h3 {
+                font-weight: normal;
+                margin-bottom: 15px;
+            }
+
+        .footer-links a {
+            color: white;
+            margin: 0 12px;
+            text-decoration: none;
+        }
+
+            .footer-links a:hover {
+                text-decoration: underline;
+            }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 20px;
+            }
+
+            .footer-links a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Help & Privacy</h1>
+    </header>
+
+    <main>
+        <section id="contact-us">
+            <h2>Contact Us</h2>
+            <p>
+                If you have questions, need support, or want to report an issue, feel free to reach out to us. We're here to help you get the best experience from StreetDeli.
+            </p>
+            <p>
+                📧 Email: <a href="mailto:support@streetdeli.com">support@streetdeli.com</a><br>
+                📱 Phone/WhatsApp: +60 123-456 789
+            </p>
+        </section>
+
+        <section id="privacy">
+            <h2>Image Use & Privacy</h2>
+            <p>
+                StreetDeli values your privacy and image rights. All images uploaded by vendors are subject to review and must comply with our content guidelines. User-submitted photos will never be used for commercial purposes without explicit permission.
+            </p>
+            <p>
+                We ensure that all personal data is protected and used only to improve user experience. Your information is never sold or shared with third parties without consent.
+            </p>
+        </section>
+    </main>
+
+    <div class="return-button">
+        <button onclick="history.back()">⬅ Return</button>
+    </div>
+
+    <footer>
+        <h3>Know more about...</h3>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="features.html">Features</a>
+            <a href="related.html">Related</a>
+        </div>
+    </footer>
+
+</body>
+</html>

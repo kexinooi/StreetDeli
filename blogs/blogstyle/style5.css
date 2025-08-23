@@ -1,0 +1,304 @@
+/* ===== GENERAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+               'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: white;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ===== GLOBAL CONTAINER ===== */
+.section-container {
+  justify-content: space-between; /* left content and profile on extremes */
+  align-items: flex-start;        /* aligns left & right items to top */
+  max-width: 1500px;
+  margin: 0 auto;
+  padding-inline: 20px; /* consistent left/right padding */
+}
+
+/* ===== HEADER ===== */
+.header-title-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+}
+
+/* FLEX CONTAINER FOR TITLE + NAV + PROFILE */
+.pro-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* TITLE + NAV IMAGE */
+.title-nav-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.title-nav-container h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+/* NAV ICON */
+.nav-icon {
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.nav-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(0.8);
+}
+
+/* USER PROFILE ICON */
+.profile-icon {
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* HR LINE */
+.header-title-container hr {
+  border: none;          /* Remove default border */
+  height: 10px;           /* Thicker line */
+  background-color: #333; /* Darker line color */
+  margin-top: 10px;
+  border-radius: 2px;    /* Optional: slightly rounded edges */
+}
+
+/* ===== NAVIGATION ===== */
+#browse-route {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 20px auto;
+  padding-inline: 20px;
+  max-width: 1200px;
+}
+#browse-route a {
+  color: #0077cc;
+  text-decoration: none;
+}
+#browse-route a:hover {
+  text-decoration: underline;
+}
+#browse-route span {
+  color: #333;
+  font-weight: 500;
+}
+#browse-route a,
+#browse-route span {
+  margin-right: 5px;
+}
+#browse-route a + span,
+#browse-route a + a {
+  margin-left: 5px;
+}
+
+/* ===== Form Card Styling ===== */
+.form-card {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;              /* ensures h2, p, and form align */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Title and subtitle inside form card */
+.form-card h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.form-card .subtitle {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+/* Form wrapper keeps fields consistent */
+.form-wrapper {
+  width: 100%;
+}
+
+/* ===== FORM CONTAINER ===== */
+.form-wrapper {
+  max-width: 600px;
+  margin: 40px auto;       /* center in page */
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Labels */
+.form-wrapper label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Inputs */
+.form-wrapper input,
+.form-wrapper textarea,
+.form-wrapper select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  font-size: 1rem;
+  background: #fafafa;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-wrapper input:focus,
+.form-wrapper textarea:focus,
+.form-wrapper select:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 5px rgba(0, 119, 204, 0.2);
+  outline: none;
+}
+
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+  cursor: pointer;
+}
+
+input[type="file"]:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 5px rgba(0, 119, 204, 0.2);
+}
+
+/* Checkbox group inside form */
+.form-wrapper .checkbox-group {
+  margin-bottom: 25px;
+}
+
+/* Submit button inside form */
+.form-wrapper button {
+  width: 100%;
+  padding: 14px;
+  background: #222;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.form-wrapper button:hover {
+  background: #444;
+}
+
+.form-wrapper button:active {
+  transform: scale(0.98);
+}
+
+/* Result box centered under form */
+.form-wrapper .result {
+  margin-top: 20px;
+  padding: 15px;
+  background: #e8f5e9;
+  border-left: 4px solid #4caf50;
+  border-radius: 8px;
+  display: none;
+  text-align: center;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+footer {
+  background: #202a08;
+  color: white;
+  width: 100%;
+  padding: 40px 60px 20px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-left {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  flex: 1;
+}
+
+.footer-section h4 {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-section p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.footer-right {
+  text-align: right;
+  min-width: 160px;
+}
+
+.footer-right h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.footer-right p {
+  font-size: 14px;
+  color: #ccc;
+  margin: 4px 0 0;
+}
+
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  color: #ccc;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}

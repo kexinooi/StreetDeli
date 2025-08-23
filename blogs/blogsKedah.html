@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blogs & Articles</title>
+    <link rel="stylesheet" href="blogstyle/style2.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header-title-container">
+      <div class="pro-container">
+        <div class="title-nav-container">
+          <h1>StreetDeli.</h1>
+          <img
+            src="img/nav.jpg"
+            width="25"
+            height="25"
+            alt="Navigation menu"
+            class="nav-icon"
+            onclick="toggleMenu()"
+          />
+        </div>
+        <img
+          src="img/pro.png"
+          width="40"
+          height="40"
+          alt="User profile"
+          class="profile-icon"
+        />
+      </div>
+    </header>
+
+    <hr />
+
+    <!-- Dark Mode Toggle -->
+    <div id="theme-toggle" title="Toggle Dark/Light Mode">
+      <i class="bi bi-sun-fill"></i>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- Breadcrumb -->
+      <nav id="browse-route" aria-label="Breadcrumb">
+        <a href="../FrontEndAss Part 1/homePage.html">Home</a> / <a href="blogs.html">Blogs & Articles</a> /
+        <span>Kedah Street Food: Rustic Flavors of the Rice Bowl State</span>
+      </nav>
+
+      <!-- Article -->
+      <article class="articles-container">
+        <header>
+          <h2>Kedah Street Food: Rustic Flavors of the Rice Bowl State</h2>
+        </header>
+
+        <p class="cnt1">
+          Kedah, known as Malaysia’s “Rice Bowl,” offers street food that feels
+          homely and comforting, with strong Malay influences and a focus on
+          fresh, local ingredients.
+        </p>
+
+        <div class="img-layout">
+          <figure class="img-main">
+            <img src="img/meerebus.jpg" alt="Mee Rebus" />
+            <figcaption>Mee Rebus</figcaption>
+          </figure>
+          <figure class="img-side">
+            <img src="img/lemangandrendang.jpg" alt="Lemang & Rendang" />
+            <figcaption>Lemang & Rendang</figcaption>
+          </figure>
+          <figure class="img-side">
+            <img src="img/laksakedah.jpg" alt="Laksa Kedah" />
+            <figcaption>Laksa Kedah</figcaption>
+          </figure>
+        </div>
+
+        <section class="cnt2">
+          <h4>Must-Try Street Foods in Kedah:</h4>
+          <ul>
+            <li>
+              <strong>Mee Rebus</strong> – Yellow noodles in a thick,
+              savory-sweet gravy made from sweet potatoes, dried shrimp, and
+              spices..
+            </li>
+            <li>
+              <strong>Lemang & Rendang</strong> – Sticky rice cooked in bamboo
+              with coconut milk, paired with rich, spiced beef or chicken
+              rendang.
+            </li>
+            <li>
+              <strong>Pulut Durian</strong> – Glutinous rice served with fresh
+              durian and coconut milk.
+            </li>
+            <li>
+              <strong>Laksa Kedah</strong> – A fish-based noodle soup with a
+              unique blend of herbs and a slightly sweeter taste than Penang’s
+              asam laksa.
+            </li>
+          </ul>
+        </section>
+
+        <section class="cnt3">
+          <h4>Best Spots to Explore:</h4>
+          <ul>
+            <li>
+              <strong>Pekan Rabu (Alor Setar)</strong> – A local market where
+              you can try various traditional Malay snacks and dishes.
+            </li>
+            <li>
+              <strong>Alor Setar Night Market</strong> – Great for trying
+              freshly grilled satay and local desserts.
+            </li>
+            <li>
+              <strong>Kuala Kedah</strong> – HKnown for fresh seafood stalls
+              along the coast.
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- SOCIAL MEDIA SHARE -->
+      <div class="social-share-container">
+        <p class="share-title">Share on:</p>
+
+        <div class="social-sidebar">
+          <!-- Facebook -->
+          <a
+            href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com/article.html"
+            target="_blank"
+            class="social-btn facebook"
+            onclick="trackShare('facebook','blog1')"
+          >
+            <i class="bi bi-facebook"></i>
+            <span class="share-count" id="facebook-blog1-count">0</span>
+          </a>
+
+          <!-- Twitter -->
+          <a
+            href="https://twitter.com/intent/tweet?url=https://yourdomain.com/article.html"
+            target="_blank"
+            class="social-btn twitter"
+            onclick="trackShare('twitter','blog1')"
+          >
+            <i class="bi bi-twitter"></i>
+            <span class="share-count" id="twitter-blog1-count">0</span>
+          </a>
+
+          <!-- WhatsApp -->
+          <a
+            href="https://api.whatsapp.com/send?text=Check%20this%20out:%20https://yourdomain.com/article.html"
+            target="_blank"
+            class="social-btn whatsapp"
+            onclick="trackShare('whatsapp','blog1')"
+          >
+            <i class="bi bi-whatsapp"></i>
+            <span class="share-count" id="whatsapp-blog1-count">0</span>
+          </a>
+        </div>
+      </div>
+      <!-- Bootstrap Icons -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      />
+
+      <!-- Tags -->
+      <section class="tag">
+        <span>Tags:</span>
+        <button type="button">Alor Setar</button>
+        <button type="button">Laksa</button>
+        <button type="button">Desserts</button>
+      </section>
+
+      <!-- Author -->
+      <section class="author-info">
+        <img src="img/fa1.jpg" alt="Author Julie Christie" />
+        <div>
+          <p class="aut-name">Julie Christie</p>
+          <p class="aut-desc">
+            A Malaysian writer and food enthusiast who loves exploring local
+            street food and sharing the flavors of Malaysia with readers.
+          </p>
+        </div>
+      </section>
+
+      <!-- Previous / Next Navigation -->
+      <section class="pre-next">
+        <a href="#" class="pre">
+          <img src="" alt="" />
+          <div class="nav-content">
+            <p class="pre-text">← Previous Post</p>
+            <p class="pre-text-desc"></p>
+          </div>
+        </a>
+        <a href="blogsPng.html" class="next">
+          <img src="img/png.jpg" alt="Sparkling wine" />
+          <div class="nav-content">
+            <p class="next-text">Next Post →</p>
+            <p class="next-text-desc">
+              Penang Street Food: Malaysia’s Flavor Capital
+            </p>
+          </div>
+        </a>
+      </section>
+
+      <!-- FOOTER SECTION -->
+      <div id="footer-placeholder"></div>
+    </main>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("overlay-menu");
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "block";
+        }
+      }
+
+      // Optional: load menu.html dynamically if using separate file
+      fetch("menu.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.body.insertAdjacentHTML("beforeend", data);
+        });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+
+      async function trackShare(platform) {
+        try {
+          // Send request to Azure backend
+          const res = await fetch("https://YOUR_AZURE_FUNCTION_URL/api/share", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ platform: platform }),
+          });
+          const data = await res.json();
+
+          // Update UI
+          document.getElementById(platform + "-count").innerText = data.count;
+        } catch (err) {
+          console.error("Error updating share count:", err);
+        }
+      }
+
+      // Load initial counts when page loads
+      window.onload = async function () {
+        try {
+          const res = await fetch("https://YOUR_AZURE_FUNCTION_URL/api/share");
+          const data = await res.json();
+
+          for (const [platform, count] of Object.entries(data)) {
+            document.getElementById(platform + "-count").innerText = count;
+          }
+        } catch (err) {
+          console.error("Error fetching counts:", err);
+        }
+      };
+
+      // On article page
+      const currentArticle = {
+        url: window.location.href,
+        title: document.title || "This Article",
+      };
+      localStorage.setItem("lastArticle", JSON.stringify(currentArticle));
+
+      const toggleBtn = document.getElementById("theme-toggle");
+
+      // Load saved mode
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+
+      // Toggle on click
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        // Save preference
+        if (document.body.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+        } else {
+          localStorage.setItem("theme", "light");
+        }
+      });
+    </script>
+  </body>
+</html>

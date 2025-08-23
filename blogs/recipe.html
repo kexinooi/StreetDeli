@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blogs & Articles</title>
+    <link rel="stylesheet" href="blogstyle/style4.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header-title-container">
+      <div class="pro-container">
+        <div class="title-nav-container">
+          <h1>StreetDeli.</h1>
+          <img
+            src="img/nav.jpg"
+            width="25"
+            height="25"
+            alt="Navigation menu"
+            class="nav-icon"
+            onclick="toggleMenu()"
+          />
+        </div>
+        <img
+          src="img/pro.png"
+          width="40"
+          height="40"
+          alt="User profile"
+          class="profile-icon"
+        />
+      </div>
+    </header>
+    <hr />
+
+    <!-- Dark Mode Toggle -->
+    <div id="theme-toggle" title="Toggle Dark/Light Mode">
+      <i class="bi bi-sun-fill"></i>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- Breadcrumb -->
+      <nav id="browse-route" aria-label="Breadcrumb">
+        <a href="../FrontEndAss Part 1/homePage.html">Home</a> / <a href="blogs.html">Blogs & Articles</a> /
+        <span>Recipe — How to Make Authentic Malaysian Nasi Lemak</span>
+      </nav>
+
+      <!-- Article -->
+      <article class="articles-container">
+        <header>
+          <h2>Recipe — How to Make Authentic Malaysian Nasi Lemak</h2>
+        </header>
+
+        <p>
+          If there’s one street food that unites Malaysians, it’s Nasi Lemak.
+          Served everywhere from roadside stalls to fine dining restaurants,
+          this dish is the perfect balance of creamy, spicy, and savory. Here’s
+          how to make it at home.
+        </p>
+
+        <img src="img/nl.jpg" alt="Nasi Lemak" class="article-img" />
+
+        <!-- Ingredients -->
+        <section class="article-section">
+          <h4>Ingredients (Serves 4)</h4>
+          <ol>
+            <li>
+              <strong>For the Rice:</strong>
+              <ul>
+                <li>2 cups jasmine rice</li>
+                <li>200ml coconut milk</li>
+                <li>2 pandan leaves (knotted)</li>
+                <li>2 cups water</li>
+                <li>1 tsp salt</li>
+              </ul>
+            </li>
+            <li>
+              <strong>For the Sambal:</strong>
+              <ul>
+                <li>10 dried chillies (soaked in hot water, seeds removed)</li>
+                <li>5 fresh red chillies</li>
+                <li>3 shallots</li>
+                <li>2 cloves garlic</li>
+                <li>1 tbsp belacan (shrimp paste)</li>
+                <li>2 tbsp tamarind juice</li>
+                <li>2 tbsp sugar</li>
+                <li>Salt to taste</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Accompaniments:</strong>
+              <ul>
+                <li>4 boiled eggs (halved)</li>
+                <li>100g fried anchovies (ikan bilis)</li>
+                <li>50g roasted peanuts</li>
+                <li>Cucumber slices</li>
+                <li>Rendang or fried chicken (optional)</li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Instructions -->
+        <section class="article-section">
+          <h4>Instructions</h4>
+          <ol>
+            <li>
+              <strong>Cook the Coconut Rice:</strong>
+              <ul>
+                <li>Wash the rice until water runs clear.</li>
+                <li>
+                  Place rice in a rice cooker with coconut milk, pandan leaves,
+                  water, and salt.
+                </li>
+                <li>Cook until soft and fragrant.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Prepare the Sambal:</strong>
+              <ul>
+                <li>
+                  Blend dried chillies, fresh chillies, shallots, garlic, and
+                  belacan into a smooth paste.
+                </li>
+                <li>
+                  Heat oil in a pan and fry the paste over medium heat until
+                  fragrant.
+                </li>
+                <li>
+                  Add tamarind juice, sugar, and salt. Simmer until thick.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Assemble the Nasi Lemak:</strong>
+              <ul>
+                <li>Place a scoop of coconut rice on a plate.</li>
+                <li>Add sambal to the side.</li>
+                <li>
+                  Arrange boiled egg, fried anchovies, peanuts, and cucumber
+                  slices around the rice.
+                </li>
+                <li>Serve hot, with rendang or fried chicken if desired.</li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Tip -->
+        <section class="article-section">
+          <p class="cnt-tip">
+            <strong>Tip:</strong> For the best flavor, use fresh coconut milk
+            and fry the sambal slowly to deepen its taste.
+          </p>
+        </section>
+
+        <section class="nasilemak-video-section">
+          <!-- Video Container -->
+          <div class="video-wrapper">
+            <!-- YouTube player will load here -->
+            <div id="nasilemak-video"></div>
+
+            <p class="video-caption">
+              Watch this step-by-step guide to cooking the perfect Nasi Lemak!
+            </p>
+
+            <!-- Fallback link -->
+            <p>
+              If the video doesn't play,
+              <a
+                href="https://www.youtube.com/watch?v=VbTle9T6fDk"
+                target="_blank"
+              >
+                click here to watch on YouTube </a
+              >.
+            </p>
+          </div>
+        </section>
+      </article>
+      <!-- SOCIAL MEDIA SHARE -->
+      <div class="social-share-container">
+        <p class="share-title">Share on:</p>
+
+        <div class="social-sidebar">
+          <!-- Facebook -->
+          <a
+            href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com/article.html"
+            target="_blank"
+            class="social-btn facebook"
+            onclick="trackShare('facebook','blog1')"
+          >
+            <i class="bi bi-facebook"></i>
+            <span class="share-count" id="facebook-blog1-count">0</span>
+          </a>
+
+          <!-- Twitter -->
+          <a
+            href="https://twitter.com/intent/tweet?url=https://yourdomain.com/article.html"
+            target="_blank"
+            class="social-btn twitter"
+            onclick="trackShare('twitter','blog1')"
+          >
+            <i class="bi bi-twitter"></i>
+            <span class="share-count" id="twitter-blog1-count">0</span>
+          </a>
+
+          <!-- WhatsApp -->
+          <a
+            href="https://api.whatsapp.com/send?text=Check%20this%20out:%20https://yourdomain.com/article.html"
+            target="_blank"
+            class="social-btn whatsapp"
+            onclick="trackShare('whatsapp','blog1')"
+          >
+            <i class="bi bi-whatsapp"></i>
+            <span class="share-count" id="whatsapp-blog1-count">0</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bootstrap Icons -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      />
+
+      <!-- Tags -->
+      <section class="tag article-section">
+        <span>Tags:</span>
+        <button type="button">Alor Setar</button>
+        <button type="button">Laksa</button>
+        <button type="button">Desserts</button>
+      </section>
+
+      <!-- Author -->
+      <section class="author-info article-section">
+        <img src="img/fa1.jpg" alt="Author Julie Christie" />
+        <div>
+          <p class="aut-name">Julie Christie</p>
+          <p class="aut-desc">
+            A Malaysian writer and food enthusiast who loves exploring local
+            street food and sharing the flavors of Malaysia with readers.
+          </p>
+        </div>
+      </section>
+
+      <!-- Previous / Next Navigation -->
+      <section class="pre-next article-section">
+        <a href="blogsjohor.html" class="pre">
+          <img src="img/kl.jpg" alt="Lemon water" />
+          <div class="nav-content">
+            <p class="pre-text">← Previous Post</p>
+            <p class="pre-text-desc">
+              Johor Street Food: Southern Flavors, Rich & Authentic
+            </p>
+          </div>
+        </a>
+        <a href="survey.html" class="next">
+          <img src="img/png.jpg" alt="Sparkling wine" />
+          <div class="nav-content">
+            <p class="next-text">Next Post →</p>
+            <p class="next-text-desc">
+              Survey on Malaysians’ Favourite Street Food in Penang, Kuala
+              Lumpur, and Kedah
+            </p>
+          </div>
+        </a>
+      </section>
+
+      <!-- FOOTER SECTION -->
+      <div id="footer-placeholder"></div>
+    </main>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("overlay-menu");
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "block";
+        }
+      }
+
+      // Optional: load menu.html dynamically if using separate file
+      fetch("menu.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.body.insertAdjacentHTML("beforeend", data);
+        });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+      const videoContainer = document.querySelector(".video-wrapper");
+      videoContainer.addEventListener("mouseenter", () => {
+        localStorage.setItem("lastWatchedVideo", "VbTle9T6fDk");
+        localStorage.setItem("lastWatchedTime", new Date().toISOString());
+      });
+
+      // Track last article visited
+      const currentArticle = {
+        url: window.location.href,
+        title: document.title || "This Article",
+      };
+      localStorage.setItem("lastArticle", JSON.stringify(currentArticle));
+
+      // Update social share links
+      document.querySelectorAll(".share-buttons a").forEach((link) => {
+        link.href = link.href.replace(
+          "PAGE_URL",
+          encodeURIComponent(window.location.href)
+        );
+      });
+
+      let player;
+      const videoID = "VbTle9T6fDk";
+      const STORAGE_KEY = "lastWatchedVideos";
+      const pageURL = window.location.href;
+
+      // Load saved video times
+      let savedVideos = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+      const lastTime = savedVideos[pageURL] || 0;
+
+      // Initialize YouTube player
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("nasilemak-video", {
+          height: "360",
+          width: "640",
+          videoId: videoID,
+          events: {
+            onReady: (event) => {
+              if (lastTime > 0) {
+                event.target.seekTo(lastTime, true); // resume playback
+              }
+            },
+            onStateChange: onPlayerStateChange,
+          },
+        });
+      }
+
+      // Save current time every 5 seconds while playing
+      let interval;
+      function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.PLAYING) {
+          interval = setInterval(() => {
+            savedVideos[pageURL] = player.getCurrentTime();
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(savedVideos));
+          }, 5000);
+        } else {
+          clearInterval(interval);
+        }
+      }
+
+      const toggleBtn = document.getElementById("theme-toggle");
+
+      // Load saved mode
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+
+      // Toggle on click
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        // Save preference
+        if (document.body.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+        } else {
+          localStorage.setItem("theme", "light");
+        }
+      });
+    </script>
+  </body>
+</html>

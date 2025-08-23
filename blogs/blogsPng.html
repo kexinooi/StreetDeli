@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blogs & Articles</title>
+    <link rel="stylesheet" href="blogstyle/style2.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header-title-container">
+      <div class="pro-container">
+        <div class="title-nav-container">
+          <h1>StreetDeli.</h1>
+          <img
+            src="img/nav.jpg"
+            width="25"
+            height="25"
+            alt="Navigation menu"
+            class="nav-icon"
+            onclick="toggleMenu()"
+          />
+        </div>
+        <img
+          src="img/pro.png"
+          width="40"
+          height="40"
+          alt="User profile"
+          class="profile-icon"
+        />
+      </div>
+    </header>
+    <hr />
+
+    <!-- Dark Mode Toggle -->
+    <div id="theme-toggle" title="Toggle Dark/Light Mode">
+      <i class="bi bi-sun-fill"></i>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- Breadcrumb -->
+      <nav id="browse-route" aria-label="Breadcrumb">
+        <a href="../FrontEndAss Part 1/homePage.html">Home</a> / <a href="blogs.html">Blogs & Articles</a> /
+        <span>Penang Street Food: Malaysia’s Flavor Capital</span>
+      </nav>
+
+      <!-- Article -->
+      <article class="articles-container">
+        <header>
+          <h2>Penang Street Food: Malaysia’s Flavor Capital</h2>
+        </header>
+
+        <p class="cnt1">
+          Penang, often hailed as Malaysia’s street food paradise, is a culinary
+          treasure trove where every corner offers a different taste adventure.
+          Influenced by Malay, Chinese, and Indian heritage, the island’s food
+          scene is a blend of bold spices, fresh ingredients, and unique cooking
+          techniques.
+        </p>
+
+        <div class="img-layout">
+          <figure class="img-main">
+            <img src="img/charkwayteow.jpg" alt="Char Kway Teow" />
+            <figcaption>Char Kway Teow</figcaption>
+          </figure>
+          <figure class="img-side">
+            <img src="img/cendol.jpg" alt="Cendol" />
+            <figcaption>Cendol</figcaption>
+          </figure>
+          <figure class="img-side">
+            <img src="img/rojak.jpg" alt="Penang Rojak" />
+            <figcaption>Penang Rojak</figcaption>
+          </figure>
+        </div>
+
+        <section class="cnt2">
+          <h4>Must-Try Street Foods in Penang:</h4>
+          <ul>
+            <li>
+              <strong>Char Kway Teow</strong> – Stir-fried flat rice noodles
+              with prawns, cockles, eggs, and bean sprouts, cooked over high
+              heat for that signature smoky wok hei.
+            </li>
+            <li>
+              <strong>Asam Laksa</strong> – A tangy, spicy fish-based noodle
+              soup topped with fresh herbs and a drizzle of sweet prawn paste.
+            </li>
+            <li>
+              <strong>Cendol</strong> – A refreshing dessert made of shaved ice,
+              coconut milk, pandan jelly, and palm sugar syrup.
+            </li>
+            <li>
+              <strong>Penang Rojak</strong> – A fruit and vegetable salad tossed
+              in a sweet, spicy shrimp paste dressing.
+            </li>
+          </ul>
+        </section>
+
+        <section class="cnt3">
+          <h4>Best Spots to Explore:</h4>
+          <ul>
+            <li>
+              <strong>Gurney Drive Hawker Centre</strong> – Famous for its wide
+              variety of local favorites.
+            </li>
+            <li>
+              <strong>Chulia Street Night Market</strong> – Perfect for sampling
+              different dishes in one walk.
+            </li>
+            <li>
+              <strong>Air Itam Market</strong> – Home to one of the most popular
+              asam laksa stalls.
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- SOCIAL MEDIA SHARE -->
+      <div class="social-share-container">
+        <p class="share-title">Share on:</p>
+
+        <div class="social-sidebar">
+          <!-- Facebook -->
+          <a
+            href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com/article.html"
+            target="_blank"
+            class="social-btn facebook"
+            onclick="trackShare('facebook','blog1')"
+          >
+            <i class="bi bi-facebook"></i>
+            <span class="share-count" id="facebook-blog1-count">0</span>
+          </a>
+
+          <!-- Twitter -->
+          <a
+            href="https://twitter.com/intent/tweet?url=https://yourdomain.com/article.html"
+            target="_blank"
+            class="social-btn twitter"
+            onclick="trackShare('twitter','blog1')"
+          >
+            <i class="bi bi-twitter"></i>
+            <span class="share-count" id="twitter-blog1-count">0</span>
+          </a>
+
+          <!-- WhatsApp -->
+          <a
+            href="https://api.whatsapp.com/send?text=Check%20this%20out:%20https://yourdomain.com/article.html"
+            target="_blank"
+            class="social-btn whatsapp"
+            onclick="trackShare('whatsapp','blog1')"
+          >
+            <i class="bi bi-whatsapp"></i>
+            <span class="share-count" id="whatsapp-blog1-count">0</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bootstrap Icons -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      />
+
+      <!-- Tags -->
+      <section class="tag">
+        <span>Tags:</span>
+        <button type="button">Penang</button>
+        <button type="button">Laksa</button>
+        <button type="button">Desserts</button>
+      </section>
+
+      <!-- Author -->
+      <section class="author-info">
+        <img src="img/fa1.jpg" alt="Author Julie Christie" />
+        <div>
+          <p class="aut-name">Julie Christie</p>
+          <p class="aut-desc">
+            A Malaysian writer and food enthusiast who loves exploring local
+            street food and sharing the flavors of Malaysia with readers.
+          </p>
+        </div>
+      </section>
+
+      <!-- Previous / Next Navigation -->
+      <section class="pre-next">
+        <a href="blogsKedah.html" class="pre">
+          <img src="img/as.jpg" alt="Kedah" />
+          <div class="nav-content">
+            <p class="pre-text">← Previous Post</p>
+            <p class="pre-text-desc">
+              Kedah Street Food: Rustic Flavors of the Rice Bowl State
+            </p>
+          </div>
+        </a>
+        <a href="blogsKl.html" class="next">
+          <img src="img/kl.jpg" alt="Sparkling wine" />
+          <div class="nav-content">
+            <p class="next-text">Next Post →</p>
+            <p class="next-text-desc">
+              Kuala Lumpur Street Food: Big City, Bold Flavors
+            </p>
+          </div>
+        </a>
+      </section>
+
+      <!-- FOOTER SECTION -->
+      <div id="footer-placeholder"></div>
+    </main>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("overlay-menu");
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "block";
+        }
+      }
+
+      // Optional: load menu.html dynamically if using separate file
+      fetch("menu.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.body.insertAdjacentHTML("beforeend", data);
+        });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+      // On article page
+      const currentArticle = {
+        url: window.location.href,
+        title: document.title || "This Article",
+      };
+      localStorage.setItem("lastArticle", JSON.stringify(currentArticle));
+
+      const toggleBtn = document.getElementById("theme-toggle");
+
+      // Load saved mode
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+
+      // Toggle on click
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        // Save preference
+        if (document.body.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+        } else {
+          localStorage.setItem("theme", "light");
+        }
+      });
+    </script>
+  </body>
+</html>

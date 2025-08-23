@@ -1,0 +1,184 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Desktop\\FrontEndAss\\add-on page\\signupPage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:add-on page\\signupPage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Desktop\\FrontEndAss\\css\\loginPage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\loginPage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Desktop\\FrontEndAss\\loginPage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:loginPage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Desktop\\FrontEndAss\\homePage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:homePage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Desktop\\FrontEndAss\\css\\homePage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\homePage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Desktop\\FrontEndAss\\signupPage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:signupPage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Desktop\\FrontEndAss\\features.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:features.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Desktop\\FrontEndAss\\related.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:related.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Desktop\\FrontEndAss\\help.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:help.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Desktop\\FrontEndAss\\about.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:about.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 192,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "signupPage.html",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\add-on page\\signupPage.html",
+              "RelativeDocumentMoniker": "add-on page\\signupPage.html",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\add-on page\\signupPage.html",
+              "RelativeToolTip": "add-on page\\signupPage.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-06T01:25:52.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "loginPage.css",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\css\\loginPage.css",
+              "RelativeDocumentMoniker": "css\\loginPage.css",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\css\\loginPage.css",
+              "RelativeToolTip": "css\\loginPage.css",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAGkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-06T01:22:22.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "homePage.css",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\css\\homePage.css",
+              "RelativeDocumentMoniker": "css\\homePage.css",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\css\\homePage.css",
+              "RelativeToolTip": "css\\homePage.css",
+              "ViewState": "AgIAAB8CAAAAAAAAAAAAAPcBAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-04T14:46:36.021Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "homePage.html",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\homePage.html",
+              "RelativeDocumentMoniker": "homePage.html",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\homePage.html",
+              "RelativeToolTip": "homePage.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-04T11:36:20.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "related.html",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\related.html",
+              "RelativeDocumentMoniker": "related.html",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\related.html",
+              "RelativeToolTip": "related.html",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAADcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-02T08:23:14.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "features.html",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\features.html",
+              "RelativeDocumentMoniker": "features.html",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\features.html",
+              "RelativeToolTip": "features.html",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAHcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-02T08:15:10.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "help.html",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\help.html",
+              "RelativeDocumentMoniker": "help.html",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\help.html",
+              "RelativeToolTip": "help.html",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAACQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-02T08:05:50.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "about.html",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\about.html",
+              "RelativeDocumentMoniker": "about.html",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\about.html",
+              "RelativeToolTip": "about.html",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAADoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-02T07:49:29.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "signupPage.html",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\signupPage.html",
+              "RelativeDocumentMoniker": "signupPage.html",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\signupPage.html",
+              "RelativeToolTip": "signupPage.html",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAYwNUAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-02T06:18:32.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "loginPage.html",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\loginPage.html",
+              "RelativeDocumentMoniker": "loginPage.html",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\FrontEndAss\\loginPage.html",
+              "RelativeToolTip": "loginPage.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-01T17:32:10.996Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
