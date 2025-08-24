@@ -54,6 +54,17 @@ body {
   margin: 0;
 }
 
+.title-nav-container a {
+  text-decoration: none;  /* removes underline */
+  color: inherit;         /* makes link text same color as normal h1 */
+}
+
+.title-nav-container a h1 {
+  margin: 0;              /* keep h1 tidy */
+  font-weight: bold;      /* make sure logo is bold */
+  color: #222;            /* or any color you want */
+}
+
 /* NAV ICON */
 .nav-icon {
   cursor: pointer;
@@ -402,14 +413,18 @@ body.dark-mode a {
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  background: linear-gradient(145deg, #f0f0f0, #ffffff); /* subtle light effect */
+  background: linear-gradient(
+    145deg,
+    #f0f0f0,
+    #ffffff
+  ); /* subtle light effect */
   color: #333;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   font-size: 1.5rem;
   z-index: 9999;
   transition: all 0.4s ease;
@@ -418,7 +433,7 @@ body.dark-mode a {
 /* Hover effect */
 #theme-toggle:hover {
   transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Dark mode styles */
@@ -459,7 +474,8 @@ body.dark-mode .articles-container {
 }
 
 /* Images caption */
-body.dark-mode figcaption, body.dark-mode span{
+body.dark-mode figcaption,
+body.dark-mode span {
   color: #ccc;
 }
 
@@ -484,7 +500,8 @@ body.dark-mode .author-info {
   color: #e0e0e0;
 }
 
-body.dark-mode .aut-name, body.dark-mode .aut-desc {
+body.dark-mode .aut-name,
+body.dark-mode .aut-desc {
   background-color: black;
   color: #e0e0e0;
 }
@@ -566,6 +583,15 @@ footer {
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
+}
+
+.footer a {
+  color: #fff; /* white text */
+  text-decoration: none; /* remove underline */
+}
+
+.footer a:hover {
+  color: #ccc; /* optional: light gray on hover */
 }
 
 /* ===== MOBILE VIEW ===== */

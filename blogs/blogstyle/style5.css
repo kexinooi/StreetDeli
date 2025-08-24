@@ -5,8 +5,8 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
-               'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   background: white;
   color: #333;
   line-height: 1.5;
@@ -15,7 +15,7 @@ body {
 /* ===== GLOBAL CONTAINER ===== */
 .section-container {
   justify-content: space-between; /* left content and profile on extremes */
-  align-items: flex-start;        /* aligns left & right items to top */
+  align-items: flex-start; /* aligns left & right items to top */
   max-width: 1500px;
   margin: 0 auto;
   padding-inline: 20px; /* consistent left/right padding */
@@ -23,11 +23,14 @@ body {
 
 /* ===== HEADER ===== */
 .header-title-container {
-  max-width: 1200px;
+  max-width: 2000px;
   margin: 0 auto;
   padding: 10px 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 /* FLEX CONTAINER FOR TITLE + NAV + PROFILE */
@@ -49,6 +52,17 @@ body {
   font-weight: 700;
   color: #333;
   margin: 0;
+}
+
+.title-nav-container a {
+  text-decoration: none;  /* removes underline */
+  color: inherit;         /* makes link text same color as normal h1 */
+}
+
+.title-nav-container a h1 {
+  margin: 0;              /* keep h1 tidy */
+  font-weight: bold;      /* make sure logo is bold */
+  color: #222;            /* or any color you want */
 }
 
 /* NAV ICON */
@@ -74,27 +88,20 @@ body {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
-/* HR LINE */
-.header-title-container hr {
-  border: none;          /* Remove default border */
-  height: 10px;           /* Thicker line */
-  background-color: #333; /* Darker line color */
-  margin-top: 10px;
-  border-radius: 2px;    /* Optional: slightly rounded edges */
-}
-
 /* ===== NAVIGATION ===== */
 #browse-route {
   font-size: 0.9rem;
   color: #666;
   margin: 20px auto;
   padding-inline: 20px;
-  max-width: 1200px;
+  max-width: 1300px;
 }
 #browse-route a {
   color: #0077cc;
   text-decoration: none;
+  font-weight: normal; /* ensures links are not bold */
 }
+
 #browse-route a:hover {
   text-decoration: underline;
 }
@@ -116,116 +123,95 @@ body {
   max-width: 600px;
   margin: 40px auto;
   background: #fff;
-  border-radius: 12px;
-  padding: 30px;              /* ensures h2, p, and form align */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 35px 30px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Title and subtitle inside form card */
 .form-card h2 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: #222;
   margin-bottom: 10px;
-  text-align: left;
+  color: #222;
 }
 
 .form-card .subtitle {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #555;
   margin-bottom: 25px;
-  line-height: 1.4;
 }
 
-/* Form wrapper keeps fields consistent */
-.form-wrapper {
-  width: 100%;
+.form-wrapper .form-group {
+  margin-bottom: 18px;
 }
 
-/* ===== FORM CONTAINER ===== */
-.form-wrapper {
-  max-width: 600px;
-  margin: 40px auto;       /* center in page */
-  padding: 30px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-/* Labels */
-.form-wrapper label {
+.form-group label {
   display: block;
-  margin-bottom: 6px;
   font-weight: 600;
+  margin-bottom: 6px;
   color: #222;
 }
 
-/* Inputs */
-.form-wrapper input,
-.form-wrapper textarea,
-.form-wrapper select {
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="file"],
+.form-group textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  margin-bottom: 18px;
-  font-size: 1rem;
   background: #fafafa;
+  font-size: 1rem;
   transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-wrapper input:focus,
-.form-wrapper textarea:focus,
-.form-wrapper select:focus {
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group input[type="file"]:focus {
   border-color: #0077cc;
   box-shadow: 0 0 5px rgba(0, 119, 204, 0.2);
   outline: none;
 }
 
-input[type="file"] {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fafafa;
-  font-size: 0.95rem;
-  margin-bottom: 18px;
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
   cursor: pointer;
 }
 
-input[type="file"]:focus {
-  border-color: #0077cc;
-  box-shadow: 0 0 5px rgba(0, 119, 204, 0.2);
+.checkbox-group label {
+  font-size: 0.95rem;
 }
 
-/* Checkbox group inside form */
-.form-wrapper .checkbox-group {
-  margin-bottom: 25px;
-}
-
-/* Submit button inside form */
 .form-wrapper button {
   width: 100%;
   padding: 14px;
-  background: #222;
-  border: none;
-  border-radius: 8px;
+  background: #218838;
   color: #fff;
+  border: none;
+  border-radius: 10px; /* <-- added border radius */
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.1s ease;
+  transition: all 0.3s ease;
 }
 
-.form-wrapper button:hover {
-  background: #444;
+button:hover {
+  background: #1e7e34;
+  transform: scale(1.03);
 }
 
-.form-wrapper button:active {
+button:active {
   transform: scale(0.98);
 }
 
-/* Result box centered under form */
-.form-wrapper .result {
+.result {
   margin-top: 20px;
   padding: 15px;
   background: #e8f5e9;
@@ -301,4 +287,43 @@ footer {
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
+}
+
+.footer a {
+  color: #fff; /* white text */
+  text-decoration: none; /* remove underline */
+}
+
+.footer a:hover {
+  color: #ccc; /* optional: light gray on hover */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .form-card {
+    padding: 25px 20px;
+  }
+
+  .form-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-card .subtitle {
+    font-size: 0.95rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+  }
 }

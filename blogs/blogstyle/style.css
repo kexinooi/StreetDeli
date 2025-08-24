@@ -20,9 +20,14 @@ a:hover {
 .header-title-container {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 400px;
   overflow: hidden;
   color: white;
+}
+
+.title-nav-container a {
+  text-decoration: none;  /* remove underline */
+  color: inherit;         /* inherit the color of parent (so same as h1) */
 }
 
 /* Slides */
@@ -59,7 +64,7 @@ a:hover {
   align-items: center;
   position: relative;
   z-index: 10; /* above slides */
-  padding: 10px 20px;
+  padding: 5px 20px;
 }
 
 /* Title + menu icon */
@@ -95,12 +100,22 @@ a:hover {
 /* Hero text */
 .hero-text {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   max-width: 700px;
   z-index: 5; /* above slides, below nav if needed */
+}
+
+.hero-text .hero-main {
+  font-size: 1.7rem; /* make main text larger */
+  font-weight: bold;
+}
+
+.hero-text #hero-sub {
+  font-size: 0.9rem; /* smaller subtitle */
+  margin-top: 10px;
 }
 
 /* Dots navigation */
@@ -168,8 +183,8 @@ a:hover {
 
 #last-read-box {
   display: none; /* hidden by default */
-  width: 250px;
-  padding: 10px 12px;
+  width: 350px;
+  padding: 10px 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f5f5f5;
@@ -321,52 +336,64 @@ a:hover {
 }
 
 /* ===== WRITER FORM ===== */
+/* ===== WRITER FORM ===== */
 #form {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 80vh;
-  width: calc(100% - 120px); /* margin spacing */
-  margin: 50px auto;
-  background: url("../img/mlsfood.jpg") center/cover no-repeat;
+  width: 100%;
+  padding: 0 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("../img/mlsfood.jpg") center/cover no-repeat;
   box-sizing: border-box;
-  max-width: 2000px;
 }
 
 .card {
-  background-color: rgba(215, 244, 209, 0.95);
-  padding: 40px 30px;
-  border-radius: 15px;
-  width: 50%;
-  max-width: 300px;
+  background-color: rgba(255, 255, 255, 0.97);
+  padding: 40px 35px;
+  border-radius: 25px;
+  max-width: 450px;
+  width: 100%;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.35);
 }
 
 .card h2 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: #333;
+  font-size: 1.8rem; /* larger and readable */
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
 }
 
 .card p {
-  font-size: 1.1rem;
-  margin-bottom: 25px;
-  color: #555;
-  line-height: 1.5;
+  font-size: 1rem; /* readable paragraph */
+  margin-bottom: 30px;
+  color: #333;
+  line-height: 1.6;
 }
 
 .card .btn {
-  padding: 12px 30px;
-  background-color: green;
+  display: inline-block;
+  padding: 14px 40px;
+  background: #28a745;
   color: #fff;
   text-decoration: none;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: opacity 0.3s;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s;
 }
+
 .card .btn:hover {
-  opacity: 0.85;
+  background: #218838;
+  transform: scale(1.05);
 }
 
 footer {
@@ -436,6 +463,40 @@ footer {
   gap: 30px;
 }
 
+.footer a {
+  color: #fff; /* white text */
+  text-decoration: none; /* remove underline */
+}
+
+.footer a:hover {
+  color: #ccc; /* optional: light gray on hover */
+}
+
+html {
+  scroll-behavior: smooth; /* smooth scroll */
+}
+
+#backToTop {
+  position: fixed;
+  right: 20px;
+  bottom: 200px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: green;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: none; /* hidden by default */
+  z-index: 1000;
+}
+
+#backToTop:hover {
+  background: darkgreen;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .header-title-container {
@@ -444,21 +505,39 @@ footer {
   .hero-text {
     max-width: 90%;
   }
+
   #form {
-    width: calc(100% - 40px);
-    height: auto;
-    padding: 20px 0;
-    background-size: 500px;
+    height: auto; /* let content define height */
+    padding: 40px 20px; /* smaller padding */
+    background-size: cover; /* keep image covering section */
+    background-position: center top; /* focus on top of image */
   }
+
   .card {
-    width: 50%;
-    height: 50%;
-    padding: 30px 30px;
+    max-width: 90%; /* make card wider for mobile */
+    padding: 30px 20px; /* adjust padding */
   }
+
   .card h2 {
     font-size: 1.5rem;
   }
+
   .card p {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .card .btn {
+    padding: 12px 30px;
+    font-size: 0.95rem;
+  }
+
+  .hero-text .hero-main {
+    font-size: 1.2rem; /* make main text larger */
+    font-weight: bold;
+  }
+
+  .hero-text #hero-sub {
+    font-size: 0.7rem; /* smaller subtitle */
+    margin-top: 10px;
   }
 }

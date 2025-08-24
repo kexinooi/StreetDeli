@@ -10,9 +10,9 @@
     <header class="header-title-container">
       <div class="pro-container">
         <div class="title-nav-container">
-          <h1>StreetDeli.</h1>
+          <a href="../FrontEndAss Part 1/homePage.html"><h1>StreetDeli.</h1></a>
           <img
-            src="img/nav.jpg"
+            src="img/nav2.png"
             width="25"
             height="25"
             alt="Navigation menu"
@@ -21,7 +21,7 @@
           />
         </div>
         <img
-          src="img/pro.png"
+          src="img/profile.png"
           width="40"
           height="40"
           alt="User profile"
@@ -41,7 +41,8 @@
     <main>
       <!-- Breadcrumb -->
       <nav id="browse-route" aria-label="Breadcrumb">
-        <a href="../FrontEndAss Part 1/homePage.html">Home</a> / <a href="blogs.html">Blogs & Articles</a> /
+        <a href="../FrontEndAss Part 1/homePage.html">Home</a> /
+        <a href="blogs.html">Blogs & Articles</a> /
         <span>Kedah Street Food: Rustic Flavors of the Rice Bowl State</span>
       </nav>
 
@@ -267,21 +268,31 @@
       localStorage.setItem("lastArticle", JSON.stringify(currentArticle));
 
       const toggleBtn = document.getElementById("theme-toggle");
+      const navIcon = document.querySelector(".nav-icon");
+      const profileIcon = document.querySelector(".profile-icon"); // profile icon
 
       // Load saved mode
       if (localStorage.getItem("theme") === "dark") {
         document.body.classList.add("dark-mode");
+        navIcon.src = "img/nav.jpg"; // dark nav icon
+        profileIcon.src = "img/pro2.png"; // dark profile icon
+      } else {
+        navIcon.src = "img/nav2.png"; // light nav icon
+        profileIcon.src = "img/profile.png"; // light profile icon
       }
 
       // Toggle on click
       toggleBtn.addEventListener("click", () => {
         document.body.classList.toggle("dark-mode");
 
-        // Save preference
         if (document.body.classList.contains("dark-mode")) {
           localStorage.setItem("theme", "dark");
+          navIcon.src = "img/nav.jpg"; // dark nav icon
+          profileIcon.src = "img/pro2.png"; // dark profile icon
         } else {
           localStorage.setItem("theme", "light");
+          navIcon.src = "img/nav2.png"; // light nav icon
+          profileIcon.src = "img/profile.png"; // light profile icon
         }
       });
     </script>

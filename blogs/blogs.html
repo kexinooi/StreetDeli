@@ -36,7 +36,7 @@
       <div class="pro-container">
         <!-- Top navigation bar -->
         <div class="title-nav-container">
-          <h1>StreetDeli.</h1>
+          <a href="../FrontEndAss Part 1/homePage.html"><h1>StreetDeli.</h1></a>
           <img
             src="img/nav.jpg"
             alt="Navigation icon"
@@ -47,7 +47,7 @@
           />
         </div>
         <img
-          src="img/pro.png"
+          src="img/pro2.png"
           width="40"
           height="40"
           alt="User profile"
@@ -69,7 +69,8 @@
     <main id="body-container">
       <!-- BREADCRUMB -->
       <nav id="browse-route" aria-label="breadcrumb">
-        <a href="../FrontEndAss Part 1/homePage.html">Home</a><span>/</span><span>Blogs and Articles</span>
+        <a href="../FrontEndAss Part 1/homePage.html">Home</a><span>/</span
+        ><span>Blogs and Articles</span>
       </nav>
 
       <!-- Last Read Article Box -->
@@ -107,9 +108,8 @@
                 </h2>
                 <hr class="divider" />
                 <p class="desc">
-                  Kedah, known as Malaysia’s “Rice Bowl,” offers street food
-                  that feels homely and comforting, with strong Malay influences
-                  and a focus on fresh, local ingredients.
+                  Kedah, Malaysia’s ‘Rice Bowl,’ serves comforting street food
+                  with fresh, local Malay flavors
                 </p>
               </div>
             </a>
@@ -139,11 +139,9 @@
                 </h2>
                 <hr class="divider" />
                 <p class="desc">
-                  Penang, often hailed as Malaysia’s street food paradise, is a
-                  culinary treasure trove where every corner offers a different
-                  taste adventure. Influenced by Malay, Chinese, and Indian
-                  heritage, the island’s food scene is a blend of bold spices,
-                  fresh ingredients, and unique cooking techniques.
+                  Penang, Malaysia’s street food paradise, blends Malay,
+                  Chinese, and Indian flavors into bold, fresh, and
+                  unforgettable dishes.
                 </p>
               </div>
             </a>
@@ -171,10 +169,8 @@
                 </h2>
                 <hr class="divider" />
                 <p class="desc">
-                  Kuala Lumpur’s street food reflects the energy of the city
-                  itself—fast-paced, diverse, and always exciting. Here, you can
-                  find both traditional Malaysian favorites and modern street
-                  food twists.
+                  Kuala Lumpur’s street food is fast-paced and diverse, offering
+                  both traditional Malaysian favorites and modern twists
                 </p>
               </div>
             </a>
@@ -198,11 +194,8 @@
                 <h2 class="title">Johor’s Street Food Gems You Must Try</h2>
                 <hr class="divider" />
                 <p class="desc">
-                  Johor’s street food reflects the region’s rich cultural
-                  mix—Malay, Chinese, and Indian influences combine to create
-                  bold, flavorful dishes that are both hearty and comforting.
-                  From bustling markets to roadside stalls, Johor’s offerings
-                  are a delight for any food lover.
+                  Johor’s street food blends Malay, Chinese, and Indian flavors
+                  into bold, hearty, and comforting dishes loved by all
                 </p>
               </div>
             </a>
@@ -230,10 +223,9 @@
                 </h2>
                 <hr class="divider" />
                 <p class="desc">
-                  If there’s one street food that unites Malaysians, it’s Nasi
-                  Lemak. Served everywhere from roadside stalls to fine dining
-                  restaurants, this dish is the perfect balance of creamy,
-                  spicy, and savory. Here’s how to make it at home.
+                  Nasi Lemak, Malaysia’s beloved dish, balances creamy, spicy,
+                  and savory flavors and can be found from street stalls to fine
+                  dining.
                 </p>
               </div>
             </a>
@@ -263,12 +255,9 @@
                 </h2>
                 <hr class="divider" />
                 <p class="desc">
-                  Street food is part of Malaysia’s heartbeat, and recent
-                  surveys show just how deeply locals and tourists alike connect
-                  with these flavorful dishes. We conducted an informal poll
-                  with 300 participants—100 each from Penang, Kuala Lumpur, and
-                  Kedah—to find out which street foods capture people’s hearts
-                  (and stomachs).
+                  Street food is Malaysia’s heartbeat. We surveyed 300 locals
+                  and tourists in Penang, Kuala Lumpur, and Kedah to see which
+                  dishes win their hearts—and stomachs
                 </p>
               </div>
             </a>
@@ -277,22 +266,25 @@
         </div>
       </section>
 
+      <button id="backToTop" aria-label="Back to top">↑</button>
+
       <!-- PAGINATION -->
       <nav id="next-pg-btn" aria-label="Pagination">
         <button id="prev">Prev</button>
         <button class="page-btn">1</button>
+        <button class="page-btn">2</button>
         <button id="next">Next</button>
       </nav>
 
       <!-- WRITER FORM -->
       <section id="form">
         <div class="card">
-          <h2>Be Our Writer</h2>
+          <h2>Join Our Food Crew</h2>
           <p>
-            Passionate about food? Time to shine! Drop us your articles and get
-            credits.
+            Love writing about food? Share your articles with us and earn
+            credits!
           </p>
-          <a href="form.html" class="btn">Drop Here</a>
+          <a href="form.html" class="btn">Submit Your Article</a>
         </div>
       </section>
 
@@ -322,6 +314,26 @@
         .then((data) => {
           document.getElementById("footer-placeholder").innerHTML = data;
         });
+
+      const backToTopBtn = document.getElementById("backToTop");
+      const showAfter = 300; // show button after 300px scroll
+
+      // Show/hide button when scrolling
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > showAfter) {
+          backToTopBtn.style.display = "block";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      });
+
+      // Scroll to top on click
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
 
       const lastReadBox = document.getElementById("last-read-box");
 

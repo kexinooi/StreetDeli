@@ -17,7 +17,7 @@
         <div class="title-nav-container">
           <h1>StreetDeli.</h1>
           <img
-            src="img/nav.jpg"
+            src="img/nav2.jpg"
             width="25"
             height="25"
             alt="Navigation menu"
@@ -25,7 +25,7 @@
           />
         </div>
         <img
-          src="img/pro.png"
+          src="img/profile.png"
           width="40"
           height="40"
           alt="User profile"
@@ -38,9 +38,9 @@
     <main>
       <!-- BREADCRUMB -->
       <nav id="browse-route" aria-label="breadcrumb">
-        <a href="#">Home</a><span>/</span
+        <a href="#">Home</a><span> / </span
         ><span><a href="blogs.html">Blogs and Articles</a></span
-        ><span>/</span><span>Blogs and Articles Form</span>
+        ><span> / </span><span>Blogs and Articles Form</span>
       </nav>
 
       <div class="form-card">
@@ -48,71 +48,46 @@
         <p class="subtitle">We will contact you within 2 days</p>
 
         <div class="form-wrapper">
-          <!-- MODIFIED FORM WITH BOOTSTRAP -->
           <form id="blogForm" enctype="multipart/form-data">
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                name="name"
-                required
-              />
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
             </div>
 
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                name="email"
-                required
-              />
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
             </div>
 
-            <div class="mb-3">
-              <label for="message" class="form-label">Message</label>
-              <textarea
-                class="form-control"
-                id="message"
-                name="message"
-                rows="4"
-              ></textarea>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4"></textarea>
             </div>
 
-            <div class="mb-3">
-              <label for="article" class="form-label"
-                >Upload Your Article (PDF)</label
-              >
+            <div class="form-group">
+              <label for="article">Upload Your Article (PDF)</label>
               <input
                 type="file"
-                class="form-control"
                 id="article"
                 name="attachment"
                 accept=".pdf"
                 required
               />
+              <small>Only PDF files are allowed.</small>
             </div>
 
-            <div class="form-check mb-3">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="terms"
-                required
-              />
-              <label class="form-check-label" for="terms">
-                I agree to the <a href="#">Terms & Conditions</a>
-              </label>
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="terms" required />
+              <label for="terms"
+                >I agree to the <a href="#">Terms & Conditions</a></label
+              >
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit">Submit</button>
+            <div id="resultBox" class="result">
+              Your article has been submitted!
+            </div>
           </form>
-
-          <!-- RESULT BOX -->
-          <div id="resultBox" class="alert alert-success mt-4 d-none"></div>
         </div>
       </div>
 
