@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -175,11 +175,13 @@
             const phoneError = document.getElementById("phone-error");
             const emailError = document.getElementById("email-error");
             const passwordError = document.getElementById("password-error");
+            const resultMessage = document.getElementById("result-message");
 
             // Reset errors
             phoneError.textContent = "";
             emailError.textContent = "";
             passwordError.textContent = "";
+            resultMessage.textContent = "";
 
             let isValid = true;
 
@@ -206,15 +208,40 @@
 
             if (!isValid) return;
 
-            // Show success message
-            resultMessage.style.color = "green";
-            resultMessage.textContent = "You signed up successfully";
+            // Prepare payload
+            const payload = {
+                password
+            };
+            if (tabPhone.classList.contains("active")) payload.phone = phone;
+            if (tabEmail.classList.contains("active")) payload.email = email;
 
-            // Redirect after 2 seconds
-            setTimeout(() => {
-                window.location.href = "../loginPage.html";
-            }, 1500);
+            // Send to backend
+            fetch("http://localhost:3000/signup", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        resultMessage.style.color = "green";
+                        resultMessage.textContent = data.message;
+
+                        setTimeout(() => {
+                            window.location.href = "../loginPage.html";
+                        }, 1500);
+                    } else {
+                        resultMessage.style.color = "red";
+                        resultMessage.textContent = data.message;
+                    }
+                })
+                .catch(err => {
+                    resultMessage.style.color = "red";
+                    resultMessage.textContent = "Server error. Please try again.";
+                    console.error(err);
+                });
         });
+
 
 
     </script>
